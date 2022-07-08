@@ -1,0 +1,139 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.first_app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="31" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/home/navneeth14/StudioProjects/first_app/android/app/src/debug/AndroidManifest.xml:7:5-66
+15-->/home/navneeth14/StudioProjects/first_app/android/app/src/debug/AndroidManifest.xml:7:22-64
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->/home/navneeth14/StudioProjects/first_app/android/app/src/main/AndroidManifest.xml:3:5-79
+16-->/home/navneeth14/StudioProjects/first_app/android/app/src/main/AndroidManifest.xml:3:22-76
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->/home/navneeth14/StudioProjects/first_app/android/app/src/main/AndroidManifest.xml:4:1-77
+17-->/home/navneeth14/StudioProjects/first_app/android/app/src/main/AndroidManifest.xml:4:18-74
+18    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+18-->/home/navneeth14/StudioProjects/first_app/android/app/src/main/AndroidManifest.xml:5:1-81
+18-->/home/navneeth14/StudioProjects/first_app/android/app/src/main/AndroidManifest.xml:5:18-78
+19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+19-->[:geolocator_android] /home/navneeth14/StudioProjects/first_app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-77
+19-->[:geolocator_android] /home/navneeth14/StudioProjects/first_app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-74
+20    <uses-permission android:name="android.permission.READ_SMS" />
+20-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-67
+20-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-64
+21    <uses-permission android:name="android.permission.SEND_SMS" />
+21-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-67
+21-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-64
+22    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+22-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-70
+22-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-67
+23    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+23-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-75
+23-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:12:22-72
+24    <uses-permission android:name="android.permission.READ_CONTACTS" />
+24-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-72
+24-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:13:22-69
+25    <uses-permission android:name="android.permission.READ_PROFILE" />
+25-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:14:5-71
+25-->[:sms_advanced] /home/navneeth14/StudioProjects/first_app/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:14:22-68
+26
+27    <application
+28        android:name="android.app.Application"
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.6.0] /home/navneeth14/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
+30        android:debuggable="true"
+31        android:icon="@mipmap/ic_launcher"
+32        android:label="first_app" >
+33        <activity
+34            android:name="com.example.first_app.MainActivity"
+35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+36            android:exported="true"
+37            android:hardwareAccelerated="true"
+38            android:launchMode="singleTop"
+39            android:theme="@style/LaunchTheme"
+40            android:windowSoftInputMode="adjustResize" >
+41
+42            <!--
+43                 Specifies an Android theme to apply to this Activity as soon as
+44                 the Android process has started. This theme is visible to the user
+45                 while the Flutter UI initializes. After that, this theme continues
+46                 to determine the Window background behind the Flutter UI.
+47            -->
+48            <meta-data
+49                android:name="io.flutter.embedding.android.NormalTheme"
+50                android:resource="@style/NormalTheme" />
+51
+52            <intent-filter>
+53                <action android:name="android.intent.action.MAIN" />
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+56            </intent-filter>
+57        </activity>
+58        <!--
+59             Don't delete the meta-data below.
+60             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+61        -->
+62        <meta-data
+63            android:name="flutterEmbedding"
+64            android:value="2" />
+65
+66        <service
+66-->[:geolocator_android] /home/navneeth14/StudioProjects/first_app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:56
+67            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+67-->[:geolocator_android] /home/navneeth14/StudioProjects/first_app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
+68            android:enabled="true"
+68-->[:geolocator_android] /home/navneeth14/StudioProjects/first_app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-35
+69            android:exported="false"
+69-->[:geolocator_android] /home/navneeth14/StudioProjects/first_app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-37
+70            android:foregroundServiceType="location" />
+70-->[:geolocator_android] /home/navneeth14/StudioProjects/first_app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
+71
+72        <activity
+72-->[:url_launcher_android] /home/navneeth14/StudioProjects/first_app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+73            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+73-->[:url_launcher_android] /home/navneeth14/StudioProjects/first_app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+74            android:exported="false"
+74-->[:url_launcher_android] /home/navneeth14/StudioProjects/first_app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+75            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+75-->[:url_launcher_android] /home/navneeth14/StudioProjects/first_app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+76
+77        <uses-library
+77-->[androidx.window:window:1.0.0-beta04] /home/navneeth14/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+78            android:name="androidx.window.extensions"
+78-->[androidx.window:window:1.0.0-beta04] /home/navneeth14/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+79            android:required="false" />
+79-->[androidx.window:window:1.0.0-beta04] /home/navneeth14/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+80        <uses-library
+80-->[androidx.window:window:1.0.0-beta04] /home/navneeth14/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+81            android:name="androidx.window.sidecar"
+81-->[androidx.window:window:1.0.0-beta04] /home/navneeth14/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+82            android:required="false" />
+82-->[androidx.window:window:1.0.0-beta04] /home/navneeth14/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+83
+84        <activity
+84-->[com.google.android.gms:play-services-base:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+85            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+85-->[com.google.android.gms:play-services-base:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+86            android:exported="false"
+86-->[com.google.android.gms:play-services-base:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+87            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+87-->[com.google.android.gms:play-services-base:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/1ea967b797818d9badf6aaa0240ca184/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+88
+89        <meta-data
+89-->[com.google.android.gms:play-services-basement:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+90            android:name="com.google.android.gms.version"
+90-->[com.google.android.gms:play-services-basement:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+91            android:value="@integer/google_play_services_version" />
+91-->[com.google.android.gms:play-services-basement:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/4ef803ba34d31dcf48df123a27eb5d76/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+92    </application>
+93
+94</manifest>

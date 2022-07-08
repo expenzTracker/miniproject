@@ -1,0 +1,4 @@
+#Thu Jul 07 15:38:44 IST 2022
+base.0=/home/navneeth14/StudioProjects/first_app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
