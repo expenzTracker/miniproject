@@ -1,4 +1,6 @@
 import 'package:first_app/home.dart';
+import 'package:first_app/login_screen.dart';
+import 'package:first_app/splash_screen.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
 // import 'package:sms/sms.dart';
@@ -18,9 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: LoginScreen(),
     );
   }
 }
-
-

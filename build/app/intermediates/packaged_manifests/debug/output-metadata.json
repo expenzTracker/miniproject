@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.first_app",
+  "applicationId": "com.mypiggy.first_app",
   "variantName": "debug",
   "elements": [
     {

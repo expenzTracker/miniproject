@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "858951772297",
+    "project_id": "mypiggy-8a50e",
+    "storage_bucket": "mypiggy-8a50e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858951772297:android:be0cdb182530261afa3e58",
+        "android_client_info": {
+          "package_name": "com.mypiggy.first_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858951772297-jh9bum01qr03bfdqrdu4h2fhi9u0b45g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9RbInu9mhbImy6liQCcO7991EbxgQRq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858951772297-jh9bum01qr03bfdqrdu4h2fhi9u0b45g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
