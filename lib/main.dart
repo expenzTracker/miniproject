@@ -1,5 +1,6 @@
 import 'package:first_app/home.dart';
 import 'package:first_app/login_screen.dart';
+import 'package:first_app/register_screen.dart';
 import 'package:first_app/splash_screen.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: const RegisterScreen(),
     );
   }
 }

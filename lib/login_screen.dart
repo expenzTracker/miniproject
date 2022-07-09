@@ -1,14 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/home.dart';
+import 'package:first_app/register_screen.dart';
 import 'package:first_app/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class LoginScreen extends StatefulWidget {
-  //const LoginScreen({ Key? key }) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
+
+final _auth = FirebaseAuth.instance;
 
 class _LoginScreenState extends State<LoginScreen> {
   String email = "";
@@ -31,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
               sigmaX: 7.0,
               sigmaY: 7.0,
             ),
-            child: Container(child: Text(".")),
+            child: const Text("."),
           ),
           Align(
             alignment: const Alignment(0, 0),
@@ -43,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SplashScreen()),
+                          builder: (context) => const RegisterScreen()),
                     );
                   },
                   child: Container(
@@ -101,7 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 30),
                 Text("OR LOGIN WITH PASSWORD",
-                    style: TextStyle(color: Color.fromRGBO(161, 164, 178, 1))),
+                    style: const TextStyle(
+                        color: Color.fromRGBO(161, 164, 178, 1))),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
@@ -139,11 +144,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       obscureText: true,
                     )),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  InkWell(
-                      child: Text("I have read the Privacy Policy",
-                          style: TextStyle(color: Colors.blue))),
-                  Theme(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                        child: Text("I have read the Privacy Policy",
+                            style: TextStyle(color: Colors.blue))),
+                    Theme(
                       data: ThemeData(unselectedWidgetColor: Colors.white),
                       child: Checkbox(
                         value: _checkbox,
@@ -154,24 +161,25 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         activeColor: Colors.white,
                         checkColor: Colors.blue,
-                      ))
-                ]),
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 40),
                 InkWell(
                   onTap: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Home()),
-                    );
-                    // try {
-                    //   final user = await _auth.signInWithEmailAndPassword(
-                    //       email: email, password: password);
-                    //   if (user != null) {
-                    //     Get.toNamed("/home");
-                    //   }
-                    // } catch (e) {
-                    //   print(e);
-                    // }
+                    try {
+                      final user = await _auth.signInWithEmailAndPassword(
+                          email: email, password: password);
+                      if (user != null) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()),
+                        );
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
                   },
                   child: Container(
                     width: 270,
