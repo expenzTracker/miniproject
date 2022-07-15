@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/home.dart';
 import 'package:first_app/register_screen.dart';
-import 'package:first_app/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
@@ -69,75 +68,74 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: const Alignment(0, 0),
                       width: 270,
                       height: 50,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const SizedBox(width: 10),
-                            // FaIcon(FontAwesomeIcons.facebook,
-                            //     color: Colors.white),
-                            const SizedBox(width: 10),
-                            const Text("Continue with Facebook",
-                                style: TextStyle(color: Colors.white))
-                          ]),
                       decoration: BoxDecoration(
                           color: const Color.fromRGBO(70, 71, 221, 1),
-                          borderRadius: BorderRadius.circular(20))),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            SizedBox(width: 10),
+                            // FaIcon(FontAwesomeIcons.facebook,
+                            //     color: Colors.white),
+                            SizedBox(width: 10),
+                            Text("Continue with Facebook",
+                                style: TextStyle(color: Colors.white))
+                          ])),
                 ),
                 InkWell(
                   onTap: () {},
                   child: Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: const EdgeInsets.only(top: 10),
                       width: 270,
                       height: 50,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const SizedBox(width: 10),
-                            // FaIcon(FontAwesomeIcons.google,
-                            //     color: Colors.white),
-                            const SizedBox(width: 15),
-                            const Text("Continue with Google",
-                                style: TextStyle(color: Colors.white))
-                          ]),
                       decoration: BoxDecoration(
                           color: const Color.fromRGBO(70, 71, 221, 1),
-                          borderRadius: BorderRadius.circular(20))),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            SizedBox(width: 10),
+                            // FaIcon(FontAwesomeIcons.google,
+                            //     color: Colors.white),
+                            SizedBox(width: 15),
+                            Text("Continue with Google",
+                                style: TextStyle(color: Colors.white))
+                          ])),
                 ),
-                SizedBox(height: 30),
-                Text("OR LOGIN WITH PASSWORD",
-                    style: const TextStyle(
-                        color: Color.fromRGBO(161, 164, 178, 1))),
+                const SizedBox(height: 30),
+                const Text("OR LOGIN WITH PASSWORD",
+                    style: TextStyle(color: Color.fromRGBO(161, 164, 178, 1))),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     color: Colors.white,
                   ),
-                  padding: EdgeInsets.only(left: 40, right: 20),
-                  margin: EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(left: 40, right: 20),
+                  margin: const EdgeInsets.only(top: 10),
                   width: 350,
                   child: TextFormField(
                     onChanged: (value) {
                       email = value;
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       labelText: 'Enter your email',
                     ),
                   ),
                 ),
                 Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: const EdgeInsets.only(top: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       color: Colors.white,
                     ),
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     width: 350,
                     child: TextFormField(
                       onChanged: (value) {
                         password = value;
                       },
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: InputBorder.none,
                         labelText: 'Enter your password',
                         suffixIcon: Icon(Icons.visibility_off),
@@ -147,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
+                    const InkWell(
                         child: Text("I have read the Privacy Policy",
                             style: TextStyle(color: Colors.blue))),
                     Theme(
@@ -184,13 +182,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(
                     width: 270,
                     height: 50,
-                    child: const Align(
-                      child: Text("Login"),
-                      alignment: Alignment(0, 0),
-                    ),
                     decoration: BoxDecoration(
                       color: const Color.fromRGBO(70, 71, 221, 1),
                       borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Align(
+                      alignment: Alignment(0, 0),
+                      child: Text("Login"),
                     ),
                   ),
                 )
