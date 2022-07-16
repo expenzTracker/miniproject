@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/choose_bank.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +74,15 @@ class Home extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const LocationRoute()),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Choose Bank'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ChooseBank()),
                 );
               },
             ),

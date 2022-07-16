@@ -116,12 +116,6 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "flutter_sms",
-      "rootUri": "file:///home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_sms-2.3.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "flutter_test",
       "rootUri": "file:///home/navneeth14/snap/flutter/common/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -350,7 +344,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-07-09T08:09:43.534428Z",
+  "generated": "2022-07-16T16:33:32.040613Z",
   "generator": "pub",
   "generatorVersion": "2.17.3"
 }

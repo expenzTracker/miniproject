@@ -9,7 +9,6 @@
 import 'package:cloud_firestore_web/cloud_firestore_web.dart';
 import 'package:firebase_auth_web/firebase_auth_web.dart';
 import 'package:firebase_core_web/firebase_core_web.dart';
-import 'package:flutter_sms/flutter_sms_web.dart';
 import 'package:geolocator_web/geolocator_web.dart';
 import 'package:sms_advanced/sms_advanced_web.dart';
 import 'package:url_launcher_web/url_launcher_web.dart';
@@ -21,7 +20,6 @@ void registerPlugins(Registrar registrar) {
   FirebaseFirestoreWeb.registerWith(registrar);
   FirebaseAuthWeb.registerWith(registrar);
   FirebaseCoreWeb.registerWith(registrar);
-  FlutterSmsPlugin.registerWith(registrar);
   GeolocatorPlugin.registerWith(registrar);
   SmsAdvancedPlugin.registerWith(registrar);
   UrlLauncherPlugin.registerWith(registrar);

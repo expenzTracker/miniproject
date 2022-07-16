@@ -4,8 +4,8 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
-6-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_sms-2.3.3/android/src/main/AndroidManifest.xml
+6-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_sms-2.3.3\android\src\main\AndroidManifest.xml
 7        android:targetSdkVersion="16" />
-7-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_sms-2.3.3/android/src/main/AndroidManifest.xml
+7-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_sms-2.3.3\android\src\main\AndroidManifest.xml
 8
 9</manifest>
