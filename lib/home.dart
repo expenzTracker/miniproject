@@ -1,14 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  final uid;
+  const Home({Key? key, this.uid}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final db = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser;
+    final uid = user?.uid;
     String? data;
     return Scaffold(
       appBar: AppBar(
@@ -40,14 +44,17 @@ class Home extends StatelessWidget {
               child: const Text('Send'),
               onPressed: () async {
                 // Create a new user with a first and last name
-                final user = <String, dynamic>{
+                final userData = <String, dynamic>{
                   "first": data,
                   "last": "Lovelace",
                   "born": 1815
                 };
                 // Add a new document with a generated ID
-                db.collection("users").add(user).then((DocumentReference doc) =>
-                    print('DocumentSnapshot added with ID: ${doc.id}'));
+                db
+                    .collection("users")
+                    .doc(uid)
+                    .collection("user_data")
+                    .add(userData);
               },
             ),
             ElevatedButton(

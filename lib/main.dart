@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+// ignore: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
+// import 'package:sms/sms.dart';
 }
 
 class MyApp extends StatelessWidget {

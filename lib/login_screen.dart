@@ -167,12 +167,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 InkWell(
                   onTap: () async {
                     try {
-                      final user = await _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
-                      if (user != null) {
+                      UserCredential result =
+                          await _auth.signInWithEmailAndPassword(
+                              email: email, password: password);
+                      if (result != null) {
+                        final User user = result.user!;
+                        final uid = user.uid;
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Home()),
+                          MaterialPageRoute(
+                              builder: (context) => Home(uid: uid)),
                         );
                       }
                     } catch (e) {
