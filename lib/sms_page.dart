@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sms_advanced/sms_advanced.dart';
 
@@ -15,6 +17,7 @@ class MyInboxState extends State {
   // ContactQuery contacts = new ContactQuery();
   SmsQuery query = SmsQuery();
   List messages = [];
+  List allMessages = [];
   // List contact=[];
 
   @override
@@ -24,6 +27,10 @@ class MyInboxState extends State {
 
   @override
   Widget build(BuildContext context) {
+    final db = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser;
+    final uid = user?.uid;
+    String? data;
     return Scaffold(
       appBar: AppBar(
         title: const Text("SMS Inbox"),
@@ -32,28 +39,17 @@ class MyInboxState extends State {
       body: FutureBuilder(
         future: fetchSMS(),
         builder: (context, snapshot) {
-          return ListView.separated(
-            separatorBuilder: (context, index) => const Divider(
-              color: Colors.black,
-            ),
-            itemCount: messages.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  leading: const Icon(
-                    Icons.markunread,
-                    color: Colors.pink,
-                  ),
-                  title: Text(messages[index].address),
-                  subtitle: Text(
-                    messages[index].body,
-                    maxLines: 2,
-                    style: const TextStyle(),
-                  ),
-                ),
-              );
-            },
+          data = messages[0];
+              var userAmt = <String,dynamic>{
+                "amount" : data
+              };
+              db
+                .collection("debit")
+                .doc(uid)
+                .collection("amount")
+                .add(userAmt);
+          return Text(
+            data.toString()
           );
         },
       ),
@@ -68,8 +64,31 @@ class MyInboxState extends State {
     // String first = "AX-";
     // String last = "LTD";
     // String last1 = "ANK";
-    // messages = await query.querySms(address: '$first' 'CUB' '$last');
-    messages = await query.getAllSms;
+    
+    // String bank = 'CUB';
+    // String bankAddress = '$first' '$bank' '$last';
+    // if (bankAddress.contains('CUB')) {
+    //   messages = await query.querySms(address: bankAddress);
+    // };
+
+    List <String> banks =['CUB','SBI','HDFC','KOTAK','BOB'];
+    var amount=0.0;
+    var strAmount;
+    
+    allMessages = await query.getAllSms;
+    for (int i=0;i<allMessages.length;i++){
+      if (allMessages[i].address!= null){
+        for(int j=0;j<banks.length;j++){
+          if (allMessages[i].address.contains(banks[j])){
+            if (allMessages[i].body.contains('is debited for') || allMessages[i].body.contains('is debited by') || allMessages[i].body.contains('is debited from')){
+              strAmount = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+              amount+=double.parse(strAmount);
+            }
+          }   
+        }  
+      };
+    }
+    messages.add(amount.toString());
   }
 
   // readSMS() async {

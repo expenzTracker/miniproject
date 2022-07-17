@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 String dropdownvalue = 'State Bank of India';  
@@ -17,7 +19,8 @@ String dropdownvalue = 'State Bank of India';
   ];
 
 class ChooseBank extends StatefulWidget {
-  const ChooseBank({Key? key}) : super(key: key);
+  final uid;
+  const ChooseBank({Key? key, this.uid}) : super(key: key);
 
   @override
   State<ChooseBank> createState() => _ChooseBankState();
@@ -26,6 +29,10 @@ class ChooseBank extends StatefulWidget {
 class _ChooseBankState extends State<ChooseBank> {
   @override
   Widget build(BuildContext context) {
+    final db = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser;
+    final uid = user?.uid;
+    String? data;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose Bank'),
@@ -43,10 +50,21 @@ class _ChooseBankState extends State<ChooseBank> {
                   child: Text(items),
                 );
               }).toList(),
-              onChanged: (String? newValue) {
+              onChanged: (String? newValue) async {
                 setState(() {
                   dropdownvalue = newValue!;
+                  data = dropdownvalue;
                 });
+                final userData = <String, dynamic>{
+                  "bank": data,
+                };
+                // Add a new document with a generated ID
+                db
+                    .collection("users")
+                    .doc(uid)
+                    .collection("user_data")
+                    .add(userData);
+                    
               },
               )
             

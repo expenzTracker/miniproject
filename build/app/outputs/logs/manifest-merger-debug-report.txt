@@ -75,7 +75,6 @@ MERGED from [:firebase_core] D:\projects\miniproject\build\firebase_core\interme
 MERGED from [:geolocator_android] D:\projects\miniproject\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:geocoding] D:\projects\miniproject\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:url_launcher_android] D:\projects\miniproject\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
-MERGED from [:flutter_sms] D:\projects\miniproject\build\flutter_sms\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:sms_advanced] D:\projects\miniproject\build\sms_advanced\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\USER\.gradle\caches\transforms-3\4e1699bac89dd1175d6d06db5b332bdb\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\USER\.gradle\caches\transforms-3\46b7b4d084b3d81741a5b81ce65c34e6\transformed\jetified-firebase-analytics-21.0.0\AndroidManifest.xml:2:1-9:12
@@ -174,8 +173,6 @@ MERGED from [:geocoding] D:\projects\miniproject\build\geocoding\intermediates\m
 MERGED from [:geocoding] D:\projects\miniproject\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:url_launcher_android] D:\projects\miniproject\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:url_launcher_android] D:\projects\miniproject\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:flutter_sms] D:\projects\miniproject\build\flutter_sms\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:flutter_sms] D:\projects\miniproject\build\flutter_sms\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:sms_advanced] D:\projects\miniproject\build\sms_advanced\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:sms_advanced] D:\projects\miniproject\build\sms_advanced\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\USER\.gradle\caches\transforms-3\4e1699bac89dd1175d6d06db5b332bdb\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
