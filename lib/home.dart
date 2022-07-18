@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/choose_bank.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
+import 'package:first_app/my_goals.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -83,6 +84,15 @@ class Home extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const ChooseBank()),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Set goals'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyGoals()),
                 );
               },
             ),

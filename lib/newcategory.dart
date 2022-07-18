@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+import 'classes/category.dart';
+
+class NewCategory extends StatelessWidget {
+
+  final Function _addCategory;
+  final Function _clear;
+  final Category? _category;
+  final TextEditingController nameController;
+  final TextEditingController amountController;
+
+  const NewCategory(this.nameController, this.amountController, this._addCategory, this._clear, this._category, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(children: [
+                    TextField(
+                      decoration: const InputDecoration(
+                        labelText: 'name',
+                      ),
+                      controller: nameController,
+                      autofocus: true,
+                    ),
+                    TextField(
+                      decoration: const InputDecoration(
+                        labelText: 'amount',
+                      ),
+                      controller: amountController,
+                      autofocus: true,
+                    ),
+                    ButtonBar(
+                        alignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: nameController.text.isNotEmpty ? () => _addCategory() : null,
+                            style: ButtonStyle(
+                              backgroundColor: nameController.text.isNotEmpty ? MaterialStateProperty.all<Color>(Colors.deepPurple) : null,
+                              overlayColor: MaterialStateProperty.all<Color>(Colors.purple), 
+                            ), 
+                            child: Text((_category != null && nameController.text.isNotEmpty) ? 'Edit To Do' : 'Add To Do'),
+                          ),
+                          Visibility (
+                            visible: nameController.text.isNotEmpty || amountController.text.isNotEmpty,
+                            child: ElevatedButton(
+                              onPressed: () => _clear(), 
+                              child: const Text('Clear'),
+                            )),
+                    ])
+                  ],
+                ),
+    );
+  }
+}

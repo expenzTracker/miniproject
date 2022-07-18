@@ -20,25 +20,24 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Stack(
-        children: [
-          // Image(
-          //   image: const AssetImage("images/panda.jpg"),
-          //   fit: BoxFit.cover,
-          //   width: MediaQuery.of(context).size.width,
-          //   height: MediaQuery.of(context).size.height,
-          // ),
-          BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 7.0,
-              sigmaY: 7.0,
+        body: SingleChildScrollView(
+          child: Center(
+              child: Stack(
+          children: [
+            // Image(
+            //   image: const AssetImage("images/panda.jpg"),
+            //   fit: BoxFit.cover,
+            //   width: MediaQuery.of(context).size.width,
+            //   height: MediaQuery.of(context).size.height,
+            // ),
+            BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 7.0,
+                sigmaY: 7.0,
+              ),
+              child: const Text("."),
             ),
-            child: const Text("."),
-          ),
-          Align(
-            alignment: const Alignment(0, 0),
-            child: Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
@@ -197,10 +196,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 )
               ],
+            )
+          ],
+              ),
             ),
-          )
-        ],
-      ),
-    ));
+        ));
   }
 }
