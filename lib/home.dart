@@ -4,6 +4,7 @@ import 'package:first_app/choose_bank.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
 import 'package:flutter/material.dart';
+import 'package:first_app/my_goals.dart';
 
 class Home extends StatelessWidget {
   final uid;
@@ -84,6 +85,15 @@ class Home extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ChooseBank(uid : uid)),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Set goals'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyGoals()),
                 );
               },
             ),
