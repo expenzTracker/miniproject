@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'classes/category.dart';
-
+    final db = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser;
+    final uid = user?.uid;
 class NewCategory extends StatelessWidget {
 
   final Function _addCategory;

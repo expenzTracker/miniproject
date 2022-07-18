@@ -63,20 +63,9 @@ class _MyGoalsState extends State<MyGoals>{
         'amount':category.amount,
       };
 
-      db.collection('goals').doc(uid).set(cat, 
-        SetOptions(merge: true)
-      );
+      db.collection('goals').doc(uid).collection('categories').add(cat);
 
-      // ###################### copied 
-      // if (category != null){
-      //   setState(() {
-      //     categories[categories.indexOf(category!)] = category;
-      //   });
-      // } else {
-      //   setState(() {
-      //     categories.add(category);
-      //   });
-      // }
+ 
 
         setState(() {
           categories.add(category);
