@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #Tue Jul 19 01:40:15 IST 2022
 base.2=/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
+=======
+#Mon Jul 18 16:54:08 IST 2022
+base.2=D\:\\projects\\miniproject\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
+>>>>>>> 855a816e080392f21dad3127d52b0ab1d260d8fa
 path.2=classes3.dex
 base.1=/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.1=classes2.dex

@@ -48,7 +48,8 @@ class Home extends StatelessWidget {
                 final userData = <String, dynamic>{
                   "first": data,
                   "last": "Lovelace",
-                  "born": 1815
+                  "born": 1815,
+                  "character": "happy"
                 };
                 // Add a new document with a generated ID
                 db
@@ -82,7 +83,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ChooseBank()),
+                  MaterialPageRoute(builder: (context) => ChooseBank(uid : uid)),
                 );
               },
             ),
