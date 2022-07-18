@@ -16,8 +16,7 @@ class MyInboxState extends State {
   // SmsReceiver receiver = new SmsReceiver();
   // ContactQuery contacts = new ContactQuery();
   SmsQuery query = SmsQuery();
-  List messages = [];
-  List allMessages = [];
+  // List messages = [];
   // List contact=[];
 
   @override
@@ -27,19 +26,32 @@ class MyInboxState extends State {
 
   @override
   Widget build(BuildContext context) {
+    List messages = [];
+    List months = ['January','February','March','April','May','June','July'];
+    List allMessages = [];
     final db = FirebaseFirestore.instance;
     final user = FirebaseAuth.instance.currentUser;
     final uid = user?.uid;
     String? data;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SMS Inbox"),
+        title: const Text("Monthly Expenditure"),
         backgroundColor: Colors.pink,
       ),
       body: FutureBuilder(
-        future: fetchSMS(),
+        future: fetchSMS(messages,months,allMessages),
         builder: (context, snapshot) {
-          data = messages[0];
+          
+          // return Text(
+          //   data.toString()
+          // );
+          return ListView.separated(
+            separatorBuilder: (context, index) => Divider(
+              color: Colors.black,
+            ),
+            itemCount: messages.length,
+            itemBuilder: (context,index){
+              data = messages[index%messages.length];
               var userAmt = <String,dynamic>{
                 "amount" : data
               };
@@ -48,8 +60,14 @@ class MyInboxState extends State {
                 .doc(uid)
                 .collection("amount")
                 .add(userAmt);
-          return Text(
-            data.toString()
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListTile(
+              title: Text(months[index%months.length]),
+              subtitle: Text(messages[index%messages.length]),
+            ),
+          );
+            },
           );
         },
       ),
@@ -60,7 +78,7 @@ class MyInboxState extends State {
   //   Contact contact = await contacts.queryContact('8589908457');
   //   print(contact.fullName);
   // }
-  fetchSMS() async {
+  fetchSMS(List messages,List months,List allMessages) async {
     // String first = "AX-";
     // String last = "LTD";
     // String last1 = "ANK";
@@ -72,8 +90,8 @@ class MyInboxState extends State {
     // };
 
     List <String> banks =['CUB','SBI','HDFC','KOTAK','BOB'];
-    var amount=0.0;
-    var strAmount;
+    var amount1=0.0,amount2=0.0,amount3=0.0,amount4=0.0,amount5=0.0,amount6=0.0,amount7=0.0;
+    var strAmount1,strAmount2,strAmount3,strAmount4,strAmount5,strAmount6,strAmount7;
     
     allMessages = await query.getAllSms;
     for (int i=0;i<allMessages.length;i++){
@@ -81,14 +99,47 @@ class MyInboxState extends State {
         for(int j=0;j<banks.length;j++){
           if (allMessages[i].address.contains(banks[j])){
             if (allMessages[i].body.contains('is debited for') || allMessages[i].body.contains('is debited by') || allMessages[i].body.contains('is debited from')){
-              strAmount = allMessages[i].body.split("Rs.")[1].split(" ")[0];
-              amount+=double.parse(strAmount);
+              if(allMessages[i].date.toString().contains('2022-07')){
+                strAmount7 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                amount7+=double.parse(strAmount7);
+              }
+              else if(allMessages[i].date.toString().contains('2022-06')){
+                strAmount6 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                amount6+=double.parse(strAmount6);
+              }
+              else if(allMessages[i].date.toString().contains('2022-05')){
+                strAmount5 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                amount5+=double.parse(strAmount5);
+              }
+              else if(allMessages[i].date.toString().contains('2022-04')){
+                strAmount4 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                amount4+=double.parse(strAmount4);
+              }
+              else if(allMessages[i].date.toString().contains('2022-03')){
+                strAmount3 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                amount3+=double.parse(strAmount3);
+              }
+              else if(allMessages[i].date.toString().contains('2022-02')){
+                strAmount2 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                amount2+=double.parse(strAmount2);
+              }
+              else if(allMessages[i].date.toString().contains('2022-01')){
+                strAmount1 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                amount1+=double.parse(strAmount1);
+              }
+              
             }
           }   
         }  
       };
     }
-    messages.add(amount.toString());
+    messages.add(amount1.toString());
+    messages.add(amount2.toString());
+    messages.add(amount3.toString());
+    messages.add(amount4.toString());
+    messages.add(amount5.toString());
+    messages.add(amount6.toString());
+    messages.add(amount7.toString());
   }
 
   // readSMS() async {
