@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:google_place/google_place.dart' as gp;
 
 class LocationRoute extends StatefulWidget {
   const LocationRoute({Key? key}) : super(key: key);
@@ -11,11 +14,19 @@ class LocationRoute extends StatefulWidget {
 
 class LocationRouteState extends State<LocationRoute> {
   late Future<List<Placemark>> currentLocation;
-  late Position coordinates;
+  late double latitude;
+  late double longitude;
   @override
   void initState() {
     super.initState();
     currentLocation = _determinePosition();
+  }
+
+  void changeCoordinates(double lat, double lng) {
+    setState(() {
+      latitude = lat;
+      longitude = lng;
+    });
   }
 
   @override
@@ -48,8 +59,7 @@ class LocationRouteState extends State<LocationRoute> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("ADDRESS:\n $locality"),
-                        Text(
-                            "COORDINATES:\n ${coordinates.latitude} ${coordinates.longitude}"),
+                        Text("COORDINATES:\n $latitude $longitude"),
                       ],
                     );
                   } else if (snapshot.hasError) {
@@ -92,7 +102,31 @@ class LocationRouteState extends State<LocationRoute> {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
 
-    coordinates = await getLocation();
+    Position coordinates = await getLocation();
+    latitude = coordinates.latitude;
+    longitude = coordinates.longitude;
+
+    LocationSettings locationSettings = AndroidSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 50,
+        foregroundNotificationConfig: ForegroundNotificationConfig(
+          notificationText: "Latitude:$latitude Longitude:$longitude",
+          notificationTitle: "Running in Background...",
+          enableWakeLock: true,
+        ));
+
+    StreamSubscription<Position> positionStream =
+        Geolocator.getPositionStream(locationSettings: locationSettings)
+            .listen((Position position) {
+      changeCoordinates(double.parse(position.latitude.toStringAsFixed(4)),
+          double.parse(position.longitude.toStringAsFixed(4)));
+    });
+
+    // var googlePlace = gp.GooglePlace("AIzaSyALEXJPfi_Dfm9knUmNbPxuQEVUWRemqAQ");
+    // var result = await googlePlace.details
+    //     .get("ChIJN1t_tDeuEmsRUsoyG83frY4", fields: "name");
+
+    // print("*******RESULT********${result?.result}");
 
     return await placemarkFromCoordinates(
         coordinates.latitude, coordinates.longitude);

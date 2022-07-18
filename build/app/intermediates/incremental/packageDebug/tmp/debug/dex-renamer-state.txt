@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-#Fri Jul 15 19:27:21 IST 2022
+#Tue Jul 19 01:40:15 IST 2022
 base.2=/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
-=======
-#Fri Jul 15 19:31:51 IST 2022
-base.2=D\:\\projects\\miniproject\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
->>>>>>> a92cce7a80b041ae9cae7d80b6cb033fd09058a1
 path.2=classes3.dex
-base.1=D\:\\projects\\miniproject\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
+base.1=/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.1=classes2.dex
-base.0=D\:\\projects\\miniproject\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+base.0=/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
