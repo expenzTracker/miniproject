@@ -17,12 +17,11 @@ class _LoginScreenState extends State<LoginScreen> {
   String email = "";
   String password = "";
   bool _checkbox = false;
+  bool _passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
         body: Center(
-          
       child: Stack(
         children: [
           // Image(
@@ -31,7 +30,13 @@ class _LoginScreenState extends State<LoginScreen> {
           //   width: MediaQuery.of(context).size.width,
           //   height: MediaQuery.of(context).size.height,
           // ),
-          
+          BackdropFilter(
+            filter: ImageFilter.blur(
+              sigmaX: 7.0,
+              sigmaY: 7.0,
+            ),
+            child: const Text("."),
+          ),
           Align(
             alignment: const Alignment(0, 0),
             child: Column(
@@ -90,12 +95,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       onChanged: (value) {
                         password = value;
                       },
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         border: InputBorder.none,
                         labelText: 'Enter your password',
-                        suffixIcon: Icon(Icons.visibility_off),
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                {
+                                  _passwordVisible = !_passwordVisible;
+                                }
+                              });
+                            },
+                            icon: const Icon(Icons.visibility_off)),
                       ),
-                      obscureText: true,
+                      obscureText: _passwordVisible ? false : true,
                     )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
