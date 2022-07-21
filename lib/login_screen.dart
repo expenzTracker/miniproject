@@ -61,47 +61,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Text("Create an Account",
                               style: TextStyle(color: Colors.white)))),
                 ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      alignment: const Alignment(0, 0),
-                      width: 270,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: const Color.fromRGBO(70, 71, 221, 1),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            SizedBox(width: 10),
-                            // FaIcon(FontAwesomeIcons.facebook,
-                            //     color: Colors.white),
-                            SizedBox(width: 10),
-                            Text("Continue with Facebook",
-                                style: TextStyle(color: Colors.white))
-                          ])),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      width: 270,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: const Color.fromRGBO(70, 71, 221, 1),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            SizedBox(width: 10),
-                            // FaIcon(FontAwesomeIcons.google,
-                            //     color: Colors.white),
-                            SizedBox(width: 15),
-                            Text("Continue with Google",
-                                style: TextStyle(color: Colors.white))
-                          ])),
-                ),
                 const SizedBox(height: 30),
                 const Text("OR LOGIN WITH PASSWORD",
                     style: TextStyle(color: Color.fromRGBO(161, 164, 178, 1))),

@@ -16,6 +16,8 @@ class RegisterScreen extends StatefulWidget {
 final _auth = FirebaseAuth.instance;
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  bool _passwordVisible = false;
+  bool _confirmPasswordVisible = false;
   @override
   void initState() {
     super.initState();
@@ -54,14 +56,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     InkWell(
                       onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen())),
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      ),
                       child: Container(
                         margin: const EdgeInsets.only(top: 10),
                         decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(20)),
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         width: 270,
                         height: 50,
                         child: const Align(
@@ -70,51 +75,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             "Login to your Account",
                             style: TextStyle(color: Colors.white),
                           ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        alignment: const Alignment(0, 0),
-                        width: 270,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: const Color.fromRGBO(70, 71, 221, 1),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            SizedBox(width: 10),
-                            // FaIcon(FontAwesomeIcons.facebook,
-                            //     color: Colors.white),
-                            SizedBox(width: 10),
-                            Text("Continue with Facebook",
-                                style: TextStyle(color: Colors.white))
-                          ],
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        width: 270,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: const Color.fromRGBO(70, 71, 221, 1),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            SizedBox(width: 10),
-                            // FaIcon(FontAwesomeIcons.google,
-                            //     color: Colors.white),
-                            SizedBox(width: 15),
-                            Text("Continue with Google",
-                                style: TextStyle(color: Colors.white))
-                          ],
                         ),
                       ),
                     ),
@@ -154,12 +114,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             password = value;
                             //Do something with the user input.
                           },
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: InputBorder.none,
                             labelText: 'Enter your password',
-                            suffixIcon: Icon(Icons.visibility_off),
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    {
+                                      _passwordVisible = !_passwordVisible;
+                                    }
+                                  });
+                                },
+                                icon: const Icon(Icons.visibility_off)),
                           ),
-                          obscureText: true,
+                          obscureText: _passwordVisible ? false : true,
                         )),
                     Container(
                         margin: const EdgeInsets.only(top: 10),
@@ -170,12 +138,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: const EdgeInsets.only(left: 40, right: 20),
                         width: 350,
                         child: TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: InputBorder.none,
                             labelText: 'Confirm your password',
-                            suffixIcon: Icon(Icons.visibility_off),
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    {
+                                      _confirmPasswordVisible =
+                                          !_confirmPasswordVisible;
+                                    }
+                                  });
+                                },
+                                icon: const Icon(Icons.visibility_off)),
                           ),
-                          obscureText: true,
+                          obscureText: _confirmPasswordVisible ? false : true,
                         )),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

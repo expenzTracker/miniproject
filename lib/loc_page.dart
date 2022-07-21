@@ -107,13 +107,14 @@ class LocationRouteState extends State<LocationRoute> {
     longitude = coordinates.longitude;
 
     LocationSettings locationSettings = AndroidSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 50,
-        foregroundNotificationConfig: ForegroundNotificationConfig(
-          notificationText: "Latitude:$latitude Longitude:$longitude",
-          notificationTitle: "Running in Background...",
-          enableWakeLock: true,
-        ));
+      accuracy: LocationAccuracy.high,
+      distanceFilter: 50,
+      foregroundNotificationConfig: ForegroundNotificationConfig(
+        notificationText: "Latitude:$latitude Longitude:$longitude",
+        notificationTitle: "Running in Background...",
+        enableWakeLock: true,
+      ),
+    );
 
     StreamSubscription<Position> positionStream =
         Geolocator.getPositionStream(locationSettings: locationSettings)
