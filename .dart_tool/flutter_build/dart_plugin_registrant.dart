@@ -11,7 +11,6 @@ import 'package:url_launcher_android/url_launcher_android.dart';
 import 'package:geolocator_apple/geolocator_apple.dart';
 import 'package:url_launcher_ios/url_launcher_ios.dart';
 import 'package:url_launcher_linux/url_launcher_linux.dart';
-import 'package:geolocator_apple/geolocator_apple.dart';
 import 'package:url_launcher_macos/url_launcher_macos.dart';
 import 'package:url_launcher_windows/url_launcher_windows.dart';
 
@@ -74,16 +73,6 @@ class _PluginRegistrant {
       }
 
     } else if (Platform.isMacOS) {
-      try {
-        GeolocatorApple.registerWith();
-      } catch (err) {
-        print(
-          '`geolocator_apple` threw an error: $err. '
-          'The app may not function as expected until you remove this plugin from pubspec.yaml'
-        );
-        rethrow;
-      }
-
       try {
         UrlLauncherMacOS.registerWith();
       } catch (err) {
