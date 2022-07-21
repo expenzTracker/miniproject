@@ -3,6 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sms_advanced/sms_advanced.dart';
 
+final db = FirebaseFirestore.instance;
+final user = FirebaseAuth.instance.currentUser;
+final uid = user?.uid;
+
 class MyInbox extends StatefulWidget {
   const MyInbox({Key? key}) : super(key: key);
 
@@ -29,10 +33,7 @@ class MyInboxState extends State {
     List messages = [];
     List months = ['January','February','March','April','May','June','July'];
     List allMessages = [];
-    final db = FirebaseFirestore.instance;
-    final user = FirebaseAuth.instance.currentUser;
-    final uid = user?.uid;
-    String? data;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Monthly Expenditure"),
@@ -50,16 +51,7 @@ class MyInboxState extends State {
               color: Colors.black,
             ),
             itemCount: messages.length,
-            itemBuilder: (context,index){
-              data = messages[index%messages.length];
-              var userAmt = <String,dynamic>{
-                "amount" : data
-              };
-              db
-                .collection("debit")
-                .doc(uid)
-                .collection("amount")
-                .add(userAmt);
+            itemBuilder: (context,index){    
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
@@ -78,7 +70,7 @@ class MyInboxState extends State {
   //   Contact contact = await contacts.queryContact('8589908457');
   //   print(contact.fullName);
   // }
-  fetchSMS(List messages,List months,List allMessages) async {
+  fetchSMS(List messages,List months,List allMessages,) async {
     // String first = "AX-";
     // String last = "LTD";
     // String last1 = "ANK";
@@ -92,7 +84,9 @@ class MyInboxState extends State {
     List <String> banks =['CUB','SBI','HDFC','KOTAK','BOB'];
     var amount1=0.0,amount2=0.0,amount3=0.0,amount4=0.0,amount5=0.0,amount6=0.0,amount7=0.0;
     var strAmount1,strAmount2,strAmount3,strAmount4,strAmount5,strAmount6,strAmount7;
-    
+    String? data;
+    var userAmt;
+
     allMessages = await query.getAllSms;
     for (int i=0;i<allMessages.length;i++){
       if (allMessages[i].address!= null){
@@ -140,6 +134,20 @@ class MyInboxState extends State {
     messages.add(amount5.toString());
     messages.add(amount6.toString());
     messages.add(amount7.toString());
+    for( int i=0;i<messages.length;i++){
+      data = messages[i];
+      userAmt = <String,dynamic>{
+                "amount" : data
+              };
+              
+    
+    }
+    db
+                .collection("debit")
+                .doc(uid)
+                .collection("amount")
+                .add(userAmt);
+    
   }
 
   // readSMS() async {

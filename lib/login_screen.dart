@@ -20,7 +20,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
         body: Center(
+          
       child: Stack(
         children: [
           // Image(
@@ -29,13 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
           //   width: MediaQuery.of(context).size.width,
           //   height: MediaQuery.of(context).size.height,
           // ),
-          BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 7.0,
-              sigmaY: 7.0,
-            ),
-            child: const Text("."),
-          ),
+          
           Align(
             alignment: const Alignment(0, 0),
             child: Column(
