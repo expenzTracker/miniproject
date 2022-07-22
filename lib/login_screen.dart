@@ -3,6 +3,7 @@ import 'package:first_app/home.dart';
 import 'package:first_app/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'classes/color_palette.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -53,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(
                       margin: const EdgeInsets.only(top: 10),
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: ColorPallete.piggyBlack,
                           borderRadius: BorderRadius.circular(20)),
                       width: 270,
                       height: 50,
