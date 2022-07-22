@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'home.dart';
@@ -32,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorPalette.piggyBlack,
       body: Center(
         child: Stack(
           children: [
@@ -65,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Container(
                         margin: const EdgeInsets.only(top: 10),
                         decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: ColorPalette.piggyViolet,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         width: 270,
@@ -119,14 +120,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             border: InputBorder.none,
                             labelText: 'Enter your password',
                             suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    {
-                                      _passwordVisible = !_passwordVisible;
-                                    }
-                                  });
-                                },
-                                icon: const Icon(Icons.visibility_off)),
+                              onPressed: () {
+                                setState(() {
+                                  {
+                                    _passwordVisible = !_passwordVisible;
+                                  }
+                                });
+                              },
+                              icon: _passwordVisible
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off),
+                            ),
                           ),
                           obscureText: _passwordVisible ? false : true,
                         )),
@@ -143,15 +147,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             border: InputBorder.none,
                             labelText: 'Confirm your password',
                             suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    {
-                                      _confirmPasswordVisible =
-                                          !_confirmPasswordVisible;
-                                    }
-                                  });
-                                },
-                                icon: const Icon(Icons.visibility_off)),
+                              onPressed: () {
+                                setState(() {
+                                  {
+                                    _confirmPasswordVisible =
+                                        !_confirmPasswordVisible;
+                                  }
+                                });
+                              },
+                              icon: _confirmPasswordVisible
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off),
+                            ),
                           ),
                           obscureText: _confirmPasswordVisible ? false : true,
                         )),
@@ -160,7 +167,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: [
                         const InkWell(
                             child: Text("I have read the Privacy Policy",
-                                style: TextStyle(color: Colors.blue))),
+                                style:
+                                    TextStyle(color: ColorPalette.piggyGrey))),
                         Theme(
                           data: ThemeData(unselectedWidgetColor: Colors.white),
                           child: Checkbox(
@@ -199,7 +207,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         width: 270,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: const Color.fromRGBO(70, 71, 221, 1),
+                          color: ColorPalette.piggyPink,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Align(
