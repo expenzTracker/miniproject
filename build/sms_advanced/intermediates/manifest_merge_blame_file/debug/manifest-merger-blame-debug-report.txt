@@ -4,27 +4,27 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
-6-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml
+6-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
 7        android:targetSdkVersion="16" />
-7-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml
+7-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
 8
 9    <uses-permission android:name="android.permission.READ_SMS" />
-9-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:4:5-66
-9-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:4:22-64
+9-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:4:5-66
+9-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:4:22-64
 10    <uses-permission android:name="android.permission.SEND_SMS" />
-10-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:5:5-66
-10-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:5:22-64
+10-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:5:5-66
+10-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:5:22-64
 11    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-11-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:6:5-69
-11-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:6:22-67
+11-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:6:5-69
+11-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:6:22-67
 12    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-12-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:7:5-74
-12-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:7:22-72
+12-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:7:5-74
+12-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:7:22-72
 13    <uses-permission android:name="android.permission.READ_CONTACTS" />
-13-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:8:5-72
-13-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:8:22-69
+13-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:8:5-72
+13-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:8:22-69
 14    <uses-permission android:name="android.permission.READ_PROFILE" />
-14-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:9:5-71
-14-->/home/navneeth14/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:9:22-68
+14-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:9:5-71
+14-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:9:22-68
 15
 16</manifest>
