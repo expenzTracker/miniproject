@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-#Fri Jul 22 01:53:00 IST 2022
-base.2=D\:\\projects\\miniproject\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
-=======
-#Fri Jul 22 00:39:00 IST 2022
+#Fri Jul 22 15:30:28 IST 2022
 base.2=/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/dex/debug/mergeDexDebug/classes3.dex
->>>>>>> location_branch
 path.2=classes3.dex
 base.1=/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.1=classes2.dex

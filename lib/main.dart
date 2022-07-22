@@ -1,3 +1,4 @@
+import 'package:first_app/classes/color_palette.dart';
 import 'package:first_app/home.dart';
 import 'package:first_app/login_screen.dart';
 import 'package:first_app/register_screen.dart';
@@ -6,8 +7,6 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-// ignore: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
-// import 'package:sms/sms.dart';
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: ColorPallete.piggyPink,
       ),
       home: const SplashScreen(),
     );
