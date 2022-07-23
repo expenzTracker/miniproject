@@ -6,9 +6,9 @@ import 'package:first_app/classes/dashboard.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/my_goals.dart';
-import 'package:first_app/add_spend.dart';
-import 'package:first_app/add_spend_route.dart';
+import 'package:first_app/goals/my_goals.dart';
+import 'package:first_app/addspend/add_spend.dart';
+import 'package:first_app/addspend/add_spend_route.dart';
 
 
 
