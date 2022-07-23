@@ -43,6 +43,7 @@ class MyInboxState extends State {
     List allMessages = [];
 
     return Scaffold(
+      // backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text("Monthly Expenditure"),
         backgroundColor: Colors.pink,
@@ -119,25 +120,25 @@ class MyInboxState extends State {
                 allMessages[i].body.contains('is debited by') ||
                 allMessages[i].body.contains('is debited from')) {
               if (allMessages[i].date.toString().contains('2022-07')) {
-                strAmount7 = allMessages[i].body.split("Rs")[1].split(" ")[0];
+                strAmount7 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
                 amount7 += double.parse(strAmount7);
               } else if (allMessages[i].date.toString().contains('2022-06')) {
-                strAmount6 = allMessages[i].body.split("Rs")[1].split(" ")[0];
+                strAmount6 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
                 amount6 += double.parse(strAmount6);
               } else if (allMessages[i].date.toString().contains('2022-05')) {
-                strAmount5 = allMessages[i].body.split("Rs")[1].split(" ")[0];
+                strAmount5 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
                 amount5 += double.parse(strAmount5);
               } else if (allMessages[i].date.toString().contains('2022-04')) {
-                strAmount4 = allMessages[i].body.split("Rs")[1].split(" ")[0];
+                strAmount4 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
                 amount4 += double.parse(strAmount4);
               } else if (allMessages[i].date.toString().contains('2022-03')) {
-                strAmount3 = allMessages[i].body.split("Rs")[1].split(" ")[0];
+                strAmount3 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
                 amount3 += double.parse(strAmount3);
               } else if (allMessages[i].date.toString().contains('2022-02')) {
-                strAmount2 = allMessages[i].body.split("Rs")[1].split(" ")[0];
+                strAmount2 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
                 amount2 += double.parse(strAmount2);
               } else if (allMessages[i].date.toString().contains('2022-01')) {
-                strAmount1 = allMessages[i].body.split("Rs")[1].split(" ")[0];
+                strAmount1 = allMessages[i].body.split("Rs.")[1].split(" ")[0];
                 amount1 += double.parse(strAmount1);
               }
             }
