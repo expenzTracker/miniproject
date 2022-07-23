@@ -1,5 +1,42 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< HEAD
+ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:1:1-11:12
+INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:1:1-11:12
+INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:1:1-11:12
+	package
+		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:2:5-47
+		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:4:5-10:19
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:5:9-9:19
+	android:name
+		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:5:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
+ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:6:13-8:85
+	android:value
+		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:8:17-82
+	android:name
+		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:7:17-124
+uses-sdk
+INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+=======
 ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml:1:1-11:12
 INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml:1:1-11:12
 INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml:1:1-11:12
@@ -35,3 +72,4 @@ INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\fir
 		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml
 		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml
 		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml
+>>>>>>> 50e8823ddbf75a5292c4a83513be2586b6aa9bd2

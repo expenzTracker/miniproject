@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // import 'add_category_route.dart';
-import 'classes/category.dart';
+import '../classes/category.dart';
 import 'newcategory.dart';
 import 'categoryitem.dart';
 import 'categorylist.dart';

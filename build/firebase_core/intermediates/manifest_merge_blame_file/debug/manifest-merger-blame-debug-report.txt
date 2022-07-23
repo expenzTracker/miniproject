@@ -4,6 +4,23 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
+<<<<<<< HEAD
+6-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="16" />
+7-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml
+8
+9    <application>
+9-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:4:5-10:19
+10        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+10-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:5:9-9:19
+10-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:5:18-89
+11            <meta-data
+11-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:6:13-8:85
+12                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+12-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:7:17-124
+13                android:value="com.google.firebase.components.ComponentRegistrar" />
+13-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.19.2/android/src/main/AndroidManifest.xml:8:17-82
+=======
 6-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml
 7        android:targetSdkVersion="16" />
 7-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml
@@ -19,6 +36,7 @@
 12-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml:7:17-124
 13                android:value="com.google.firebase.components.ComponentRegistrar" />
 13-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_core-1.19.2\android\src\main\AndroidManifest.xml:8:17-82
+>>>>>>> 50e8823ddbf75a5292c4a83513be2586b6aa9bd2
 14        </service>
 15    </application>
 16
