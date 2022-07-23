@@ -60,10 +60,9 @@ class _ChooseBankState extends State<ChooseBank> {
                 };
                 // Add a new document with a generated ID
                 db
-                    .collection("users")
+                    .collection("banks")
                     .doc(uid)
-                    .collection("user_data")
-                    .add(userData);
+                    .set(userData);
                     
               },
               )

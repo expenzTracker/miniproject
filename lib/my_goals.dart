@@ -59,11 +59,10 @@ class _MyGoalsState extends State<MyGoals>{
       );
 
       var cat = {
-        'name':category.name,
         'amount':category.amount,
       };
 
-      db.collection('goals').doc(uid).collection('categories').add(cat);
+      db.collection('goals').doc(uid).collection('category').doc(category.name).set(cat);
 
  
 
@@ -145,7 +144,11 @@ class _MyGoalsState extends State<MyGoals>{
             children: <Widget>[
                Padding(
                  padding: const EdgeInsets.all(30.0),
-                 child: TextField( 
+                 child: TextFormField( 
+                  onChanged: (value){
+                    amount = value;
+                    print(amount);
+                  },
                  decoration: InputDecoration(
       
                    border: OutlineInputBorder(
@@ -165,7 +168,7 @@ class _MyGoalsState extends State<MyGoals>{
                 onPressed: () {
                   db.collection('goals').doc(uid).set({
                     'monthly_goal': amount,
-                  }, SetOptions(merge: true));
+                  }, );
                 },
               ),
       
