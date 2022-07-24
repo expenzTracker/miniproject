@@ -6,7 +6,7 @@ import 'dashboard.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/my_goals.dart';
+import './goals/my_goals.dart';
 import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
 

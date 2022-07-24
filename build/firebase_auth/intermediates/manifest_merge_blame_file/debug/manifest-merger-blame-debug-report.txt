@@ -4,23 +4,6 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
-<<<<<<< HEAD
-6-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml
-7        android:targetSdkVersion="16" />
-7-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml
-8
-9    <application>
-9-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml:3:5-8:19
-10        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
-10-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml:4:9-7:19
-10-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml:4:18-89
-11            <meta-data
-11-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml:5:13-6:92
-12                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-12-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml:5:24-131
-13                android:value="com.google.firebase.components.ComponentRegistrar" />
-13-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.4.2/android/src/main/AndroidManifest.xml:6:24-89
-=======
 6-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_auth-3.4.2\android\src\main\AndroidManifest.xml
 7        android:targetSdkVersion="16" />
 7-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_auth-3.4.2\android\src\main\AndroidManifest.xml
@@ -36,7 +19,6 @@
 12-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_auth-3.4.2\android\src\main\AndroidManifest.xml:5:24-131
 13                android:value="com.google.firebase.components.ComponentRegistrar" />
 13-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\firebase_auth-3.4.2\android\src\main\AndroidManifest.xml:6:24-89
->>>>>>> 50e8823ddbf75a5292c4a83513be2586b6aa9bd2
 14        </service>
 15    </application>
 16

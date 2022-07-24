@@ -19,7 +19,6 @@ class MyInbox extends StatefulWidget {
 class MyInboxState extends State {
   // SmsReceiver receiver = new SmsReceiver();
   SmsQuery query = SmsQuery();
-
   @override
   initState() {
     super.initState();
@@ -82,7 +81,7 @@ class MyInboxState extends State {
           ),
         ));
   }
-
+      DocumentSnapshot? tempTrans;
   fetchSMS(
     List messages,
     Map months,
@@ -93,6 +92,7 @@ class MyInboxState extends State {
     List strAmounts = List.filled(12, null, growable: false);
     String? data;
     var userAmt;
+
 
     allMessages = await query.getAllSms;
     for (int i = 0; i < allMessages.length; i++) {
@@ -108,27 +108,55 @@ class MyInboxState extends State {
                       allMessages[i].body.split("Rs.")[1].split(" ")[0];
                   amounts[int.parse(key) - 1] +=
                       double.parse(strAmounts[int.parse(key) - 1]);
+                  var transactionDetails = {
+                    'month': value,
+                    'date': allMessages[i].date.toString().split(' ')[0],
+                    'time': allMessages[i].date.toString().split(' ')[1],
+                    'amount': strAmounts[int.parse(key) - 1],
+                  };
+                  if(doesCategoryAlreadyExist(allMessages[i].date.toString())){
+                    getCategoryValue(allMessages[i].date.toString());
+                    transactionDetails['category']=(tempTrans?.data() as Map)["category"];
+                  }
                   await db
                       .collection('transactions')
                       .doc(uid)
                       .collection('details')
                       .doc(allMessages[i].date.toString())
-                      .set({
-                    'month': value,
-                    'date': allMessages[i].date.toString().split(' ')[0],
-                    'time': allMessages[i].date.toString().split(' ')[1],
-                    'amount': strAmounts[int.parse(key) - 1]
-                  });
+                      .set(transactionDetails);
                 }
               });
             }
           }
         }
       }
+      
     }
     months.forEach((key, value) {
       messages.add(amounts[int.parse(key) - 1]);
     });
+  }
+
+
+
+  getCategoryValue(String dateId) async {
+    await db
+        .collection('transactions')
+        .doc(uid)
+        .collection('details')
+        .doc(dateId)
+        .get().then((value) => tempTrans = value);
+  }
+
+  doesCategoryAlreadyExist(String dateId) {
+    getCategoryValue(dateId);
+    bool? val;
+    if (tempTrans?.data() != null) {
+      val = (tempTrans?.data() as Map).containsKey('category');
+      return val;
+    } else {
+      return false;
+    }
   }
 
   // readSMS() async {
