@@ -114,16 +114,12 @@ class MyInboxState extends State {
                     'time': allMessages[i].date.toString().split(' ')[1],
                     'amount': strAmounts[int.parse(key) - 1],
                   };
-                  if(doesCategoryAlreadyExist(allMessages[i].date.toString())){
-                    getCategoryValue(allMessages[i].date.toString());
-                    transactionDetails['category']=(tempTrans?.data() as Map)["category"];
-                  }
                   await db
                       .collection('transactions')
                       .doc(uid)
                       .collection('details')
                       .doc(allMessages[i].date.toString())
-                      .set(transactionDetails);
+                      .set(transactionDetails, SetOptions(merge: true));
                 }
               });
             }
@@ -138,26 +134,6 @@ class MyInboxState extends State {
   }
 
 
-
-  getCategoryValue(String dateId) async {
-    await db
-        .collection('transactions')
-        .doc(uid)
-        .collection('details')
-        .doc(dateId)
-        .get().then((value) => tempTrans = value);
-  }
-
-  doesCategoryAlreadyExist(String dateId) {
-    getCategoryValue(dateId);
-    bool? val;
-    if (tempTrans?.data() != null) {
-      val = (tempTrans?.data() as Map).containsKey('category');
-      return val;
-    } else {
-      return false;
-    }
-  }
 
   // readSMS() async {
   //   receiver.onSmsReceived.listen((SmsMessage msg) {
