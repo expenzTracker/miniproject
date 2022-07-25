@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
     
     String? data;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorPalette.piggyBlack,
       appBar: AppBar(
         title: const Text('Home'),
       ),
@@ -135,6 +135,15 @@ class Home extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const Dashboard()),
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: const Text('Uncategorized spends'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UncategorizedSpends()),
                   );
                 },
               ),
