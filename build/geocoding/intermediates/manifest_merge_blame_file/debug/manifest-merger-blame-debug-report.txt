@@ -4,14 +4,8 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
-<<<<<<< HEAD
 6-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geocoding-2.0.4/android/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="16" />
 7-->/home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/geocoding-2.0.4/android/src/main/AndroidManifest.xml
-=======
-6-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\geocoding-2.0.4\android\src\main\AndroidManifest.xml
-7        android:targetSdkVersion="16" />
-7-->D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\geocoding-2.0.4\android\src\main\AndroidManifest.xml
->>>>>>> 50e8823ddbf75a5292c4a83513be2586b6aa9bd2
 8
 9</manifest>

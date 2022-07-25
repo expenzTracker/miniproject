@@ -1,6 +1,5 @@
 -- Merging decision tree log ---
 manifest
-<<<<<<< HEAD
 ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:1:1-10:12
 INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:1:1-10:12
 INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml:1:1-10:12
@@ -48,52 +47,3 @@ INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.d
 		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml
 		ADDED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml
 		INJECTED from /home/niranjan/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/sms_advanced-1.0.1/android/src/main/AndroidManifest.xml
-=======
-ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:1:1-10:12
-INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:1:1-10:12
-INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:1:1-10:12
-	package
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:2:3-37
-		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-	xmlns:android
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:1:11-69
-uses-permission#android.permission.READ_SMS
-ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:4:5-66
-	android:name
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:4:22-64
-uses-permission#android.permission.SEND_SMS
-ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:5:5-66
-	android:name
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:5:22-64
-uses-permission#android.permission.RECEIVE_SMS
-ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:6:5-69
-	android:name
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:6:22-67
-uses-permission#android.permission.READ_PHONE_STATE
-ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:7:5-74
-	android:name
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:7:22-72
-uses-permission#android.permission.READ_CONTACTS
-ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:8:5-72
-	android:name
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:8:22-69
-uses-permission#android.permission.READ_PROFILE
-ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:9:5-71
-	android:name
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml:9:22-68
-uses-sdk
-INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-	android:targetSdkVersion
-		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-	android:minSdkVersion
-		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-		ADDED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
-		INJECTED from D:\projects\flutter\flutter\.pub-cache\hosted\pub.dartlang.org\sms_advanced-1.0.1\android\src\main\AndroidManifest.xml
->>>>>>> 50e8823ddbf75a5292c4a83513be2586b6aa9bd2

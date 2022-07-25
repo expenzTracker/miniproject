@@ -84,6 +84,7 @@ class _MyGoalsState extends State<MyGoals>{
 
   void _editCategory(Category categoryitem){
     setState(() {
+       categories = List.from(categories)..removeAt(categories.indexOf(categoryitem));
       category = categoryitem;
       amount = categoryitem.amount;
       name = categoryitem.name;
@@ -152,7 +153,6 @@ class _MyGoalsState extends State<MyGoals>{
                      borderRadius: BorderRadius.circular(40)
                    ),
                    hintText: 'Enter your monthly goals',
-                   
                    filled: true,
                    fillColor: Colors.grey,
                    ),
@@ -206,7 +206,7 @@ class _MyGoalsState extends State<MyGoals>{
                       ]
                     ),
                   )
-                )                    
+                )
             ],
       
           ),

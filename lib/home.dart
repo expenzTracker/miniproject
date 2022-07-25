@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/choose_bank.dart';
@@ -5,6 +6,7 @@ import 'package:first_app/classes/color_palette.dart';
 import 'package:first_app/classes/dashboard.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
+import 'package:first_app/uncategorized.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/goals/my_goals.dart';
 import 'package:first_app/addspend/add_spend.dart';
@@ -26,6 +28,20 @@ class Home extends StatelessWidget {
     final db = FirebaseFirestore.instance;
     final user = FirebaseAuth.instance.currentUser;
     final uid = user?.uid;
+
+    final CollectionReference transactionlist=FirebaseFirestore.instance.collection('transactions').doc().collection('details');
+
+    Future <void> createTransactionData(
+      String amount, String category, String date, String month, String time) async {
+        return await transactionlist.doc(uid).set({"amount": amount,"category":category });
+     }
+
+     Future getTransactionList() async {
+      try{
+        await transactionlist.get().then((value) => QueryDocumentSnapshot);
+      } catch(e){
+      }
+     }
     
     
     String? data;
@@ -110,6 +126,15 @@ class Home extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const MyGoals()),
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: const Text('Uncategorized spends'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UncategorizedSpends()),
                   );
                 },
               ),

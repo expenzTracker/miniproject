@@ -5,14 +5,25 @@ import 'package:flutter/material.dart';
 
 /// Tag-value used for the add todo popup button.
 const String _heroAddSpend = 'add-spend';
+    final db = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser;
+    final uid = user?.uid;
 
-String dropdownvalue="-- Select Category --";
 
- final List<String> categoryitems = <String>[
+
+    String? category_of_spend=items[0];
+
+ final List<String> items = <String>[
     "-- Select category --",
     "Food",
     "Travel",
   ];
+
+   var spendData = <String, dynamic>{
+      "spendAmount": "0",
+      "category": "-- Select category --",
+    };
+
 /// [HeroDialogRoute] to achieve the popup effect.
 ///
 /// Uses a [Hero] with tag [_heroAddSpend].
@@ -27,20 +38,27 @@ class AddSpend extends StatefulWidget {
 
 class _AddSpendState extends State<AddSpend> {
 
-  @override
- void initState() {
-    super.initState();
-    dropdownvalue=categoryitems[0];
+   String spendAmount = '';
+    // final spendAmountController = TextEditingController();
 
-  }
+//  @override
+//   void initState() {
+//     super.initState();
+//     spendAmountController.addListener(_handleSpendAmountChange);
+//     category_of_spend=items[0];
+//   }
+
+  // void _handleSpendAmountChange() {
+  //   setState(() {
+  //     spendAmount = spendAmountController.text;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
 
-    final db = FirebaseFirestore.instance;
-    final user = FirebaseAuth.instance.currentUser;
-    final uid = user?.uid;
-    String? category_of_spend;
+
+   
 
     
     return Center(
@@ -68,12 +86,16 @@ class _AddSpendState extends State<AddSpend> {
                         borderRadius: BorderRadius.circular(40),
                         color: Colors.white,
                       ),
-                      child: const TextField(
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                          hintText: 'Enter amount',
-                          border: InputBorder.none,
-                        ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          onChanged: (value) {
+                            spendAmount=value;
+                          },
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            labelText: 'Enter spend amount',
+                          )                      ),
                       ),
                     ),
                     const Divider(
@@ -81,37 +103,33 @@ class _AddSpendState extends State<AddSpend> {
                       thickness: 0.2,
                     ),
                     Container(
+                      width: 200,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
                         color: Colors.white,
                       ),
-                      child: DropdownButton(
-                        value: dropdownvalue.isNotEmpty? dropdownvalue : '-- Select category --',
-                        icon: Icon(Icons.keyboard_arrow_down),  
-                        items: categoryitems.map((String items) {
-                          return DropdownMenuItem(
-                            value: items,
-                            child: Text(items),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) async {
-                          setState(() {
-                            dropdownvalue = newValue!;
-                            category_of_spend = dropdownvalue;
-                          });
-                          // final userData = <String, dynamic>{
-                          //   "category": data,
-                          // };
-
-                          // Add a new document with a generated ID
-                          
-                          // db
-                          //     .collection("users")
-                          //     .doc(uid)
-                          //     .collection("user_data")
-                          //     .add(userData);
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: DropdownButton(
+                          value: category_of_spend,
+                          icon: Icon(Icons.keyboard_arrow_down),  
+                          items: items.map((String item) {
+                            return DropdownMenuItem(
+                              value: item,
+                              child: Text(item),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              category_of_spend = newValue!;
+                              spendData["spendAount"] = spendAmount;
+                              spendData["category"] = category_of_spend;
                               
-                        },
+                            });
+                            
+                      
+                          },
+                        ),
                       ),
                     ),
                     const Divider(
@@ -119,7 +137,11 @@ class _AddSpendState extends State<AddSpend> {
                       thickness: 0.2,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        print(spendAmount);
+                        print(category_of_spend);
+                        db.collection("users").doc(uid).collection("transactions").add(spendData);
+                      },
                       child: const Text('Add'),
                     ),
                   ],
