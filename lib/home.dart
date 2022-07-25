@@ -113,6 +113,15 @@ class Home extends StatelessWidget {
                   );
                 },
               ),
+              ElevatedButton(
+                child: const Text('Dashboard'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Dashboard()),
+                  );
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: GestureDetector(

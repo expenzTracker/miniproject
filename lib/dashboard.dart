@@ -10,6 +10,8 @@ final db = FirebaseFirestore.instance;
 final user = FirebaseAuth.instance.currentUser;
 final uid = user?.uid;
 var budgetData;
+var spentData=0.0;
+var spentDataDoc;
 String? budget;
 
     
@@ -25,16 +27,17 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     getAmount();
   }
   @override
   Widget build(BuildContext context) {
-    
+        spentData=0.0;
     return Scaffold(
       appBar: AppBar(title: const Text("Dashboard")),
       backgroundColor: Colors.black,
       body: FutureBuilder(
-                  future: getAmount(),
+                  future: getSpentAmount(),
                   builder: (context,snapshot){
                     return Center(
                       child: Container(
@@ -53,10 +56,10 @@ class _DashboardState extends State<Dashboard> {
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 children: [
                                   Text(
-                                    "Rs.${budgetData?['monthly_goal']}",
+                                    "Rs.${spentData.toString()}",
                                     style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold)
                                     ),
-                                  Text("spent",style: TextStyle(fontSize: 14))
+                                  const Text("spent",style: TextStyle(fontSize: 14))
                                 ],
                               ),
                               Row(
@@ -65,14 +68,14 @@ class _DashboardState extends State<Dashboard> {
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 children: [
                                   Text(
-                                    "Rs.${budgetData?['monthly_goal']}",
+                                    "Rs.${(double.parse(budgetData?['monthly_goal'])-spentData).toString()}",
                                     style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)
                                     ),
-                                  Text("left",style: TextStyle(fontSize: 10))
+                                  const Text("left",style: TextStyle(fontSize: 10))
                                 ],
                               ),
                             
-                          ]),
+                          ],),
                         )
                       ),
                     );
@@ -81,17 +84,27 @@ class _DashboardState extends State<Dashboard> {
     );
     }}
 
-Future getAmount() async {
-  final docRef = await db.collection("goals").doc(uid);
-  docRef.get().then(
+getAmount() async {
+  await db.collection("goals").doc(uid).get().then(
     (DocumentSnapshot doc) {
     budgetData = doc.data() as Map<String, dynamic>;
-    print(budgetData?['monthly_goal']);
-    // budget=budgetData?['amount'];
-    // ...
   },
     onError: (e) => print("Error getting document: $e"),
     );
   
   return budgetData;
+}
+
+getSpentAmount() async {
+  await db.collection("transactions").doc(uid).collection('details').where("month",isEqualTo:'June').get().then(
+    (QuerySnapshot doc) {
+      spentDataDoc = doc.docs;
+      spentDataDoc.forEach((value)=>{
+        spentData+=(double.parse((value.data() as Map)['amount']))
+      });
+  },
+    onError: (e) => print("Error getting document: $e"),
+    );
+  
+  return spentData;
 }
