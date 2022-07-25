@@ -12,7 +12,7 @@ final uid = user?.uid;
 var budgetData;
 var spentData=0.0;
 var spentDataDoc;
-String? budget;
+double budget=0.0;
 
     
 class Dashboard extends StatefulWidget {
@@ -28,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
     // TODO: implement initState
     super.initState();
 
-    getAmount();
+
   }
   @override
   Widget build(BuildContext context) {
@@ -56,10 +56,10 @@ class _DashboardState extends State<Dashboard> {
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 children: [
                                   Text(
-                                    "Rs.${spentData.toString()}",
-                                    style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold)
+                                    "Rs.${(budget-spentData).toString()}",
+                                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)
                                     ),
-                                  const Text("spent",style: TextStyle(fontSize: 14))
+                                  const Text("left",style: TextStyle(fontSize: 10))
                                 ],
                               ),
                               Row(
@@ -68,10 +68,10 @@ class _DashboardState extends State<Dashboard> {
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 children: [
                                   Text(
-                                    "Rs.${(double.parse(budgetData?['monthly_goal'])-spentData).toString()}",
-                                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)
+                                    "Rs.${spentData.toString()}",
+                                    style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold)
                                     ),
-                                  const Text("left",style: TextStyle(fontSize: 10))
+                                  const Text("spent",style: TextStyle(fontSize: 14))
                                 ],
                               ),
                             
@@ -91,11 +91,12 @@ getAmount() async {
   },
     onError: (e) => print("Error getting document: $e"),
     );
-  
-  return budgetData;
+  budget=double.parse(budgetData?['monthly_goal']);
+  // return budget;
 }
 
 getSpentAmount() async {
+      getAmount();
   await db.collection("transactions").doc(uid).collection('details').where("month",isEqualTo:'June').get().then(
     (QuerySnapshot doc) {
       spentDataDoc = doc.docs;
