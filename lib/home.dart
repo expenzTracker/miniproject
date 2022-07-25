@@ -3,14 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/choose_bank.dart';
 import 'package:first_app/classes/color_palette.dart';
-import 'package:first_app/classes/dashboard.dart';
+import 'dashboard.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/sms_page.dart';
 import 'package:first_app/uncategorized.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/goals/my_goals.dart';
-import 'package:first_app/addspend/add_spend.dart';
-import 'package:first_app/addspend/add_spend_route.dart';
+import './goals/my_goals.dart';
+import 'addspend/add_spend.dart';
+import 'addspend/add_spend_route.dart';
 
 
 
@@ -130,11 +130,11 @@ class Home extends StatelessWidget {
                 },
               ),
               ElevatedButton(
-                child: const Text('Uncategorized spends'),
+                child: const Text('Dashboard'),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const UncategorizedSpends()),
+                    MaterialPageRoute(builder: (context) => const Dashboard()),
                   );
                 },
               ),
