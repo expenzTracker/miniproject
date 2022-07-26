@@ -4,6 +4,10 @@
         "source": "/home/navneeth14/StudioProjects/miniproject/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/merged_res/debug/drawable_piggy.png.flat",
+        "source": "/home/navneeth14/StudioProjects/miniproject/android/app/src/main/res/drawable/piggy.png"
+    },
+    {
         "merged": "/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/home/navneeth14/StudioProjects/miniproject/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },

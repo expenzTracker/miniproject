@@ -18,11 +18,7 @@ class MyInbox extends StatefulWidget {
 
 class MyInboxState extends State {
   // SmsReceiver receiver = new SmsReceiver();
-  // ContactQuery contacts = new ContactQuery();
   SmsQuery query = SmsQuery();
-  // List messages = [];
-  // List contact=[];
-
   @override
   initState() {
     super.initState();
@@ -31,84 +27,72 @@ class MyInboxState extends State {
   @override
   Widget build(BuildContext context) {
     List messages = [];
-    List months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July'
-    ];
+    Map months = {
+      '01': 'January',
+      '02': 'February',
+      '03': 'March',
+      '04': 'April',
+      '05': 'May',
+      '06': 'June',
+      '07': 'July',
+      '08': 'August',
+      '09': 'September',
+      '10': 'October',
+      '11': 'November',
+      '12': 'December',
+    };
     List allMessages = [];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Monthly Expenditure"),
-        backgroundColor: Colors.pink,
-      ),
-      body: FutureBuilder(
-        future: fetchSMS(messages, months, allMessages),
-        builder: (context, snapshot) {
-          // return Text(
-          //   data.toString()
-          // );
-          return ListView.separated(
-            separatorBuilder: (context, index) => Divider(
-              color: Colors.black,
-            ),
-            itemCount: messages.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  title: Text(months[index % months.length]),
-                  subtitle: Text(messages[index % messages.length]),
+        // backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: const Text("Monthly Expenditure"),
+          backgroundColor: Colors.pink,
+        ),
+        body: RefreshIndicator(
+          onRefresh: () async {
+            setState(() {
+              fetchSMS(messages, months, allMessages);
+            });
+          },
+          child: FutureBuilder(
+            future: fetchSMS(messages, months, allMessages),
+            builder: (context, snapshot) {
+              // return Text(
+              //   data.toString()
+              // );
+              return ListView.separated(
+                separatorBuilder: (context, index) => Divider(
+                  color: Colors.black,
                 ),
+                itemCount: messages.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      // title: Text(months[index % months.length]),
+                      subtitle:
+                          Text(messages[index % messages.length].toString()),
+                    ),
+                  );
+                },
               );
             },
-          );
-        },
-      ),
-    );
+          ),
+        ));
   }
-
-  // fetchContact() async {
-  //   Contact contact = await contacts.queryContact('8589908457');
-  //   print(contact.fullName);
-  // }
+      DocumentSnapshot? tempTrans;
   fetchSMS(
     List messages,
-    List months,
+    Map months,
     List allMessages,
   ) async {
-    // String first = "AX-";
-    // String last = "LTD";
-    // String last1 = "ANK";
-
-    // String bank = 'CUB';
-    // String bankAddress = '$first' '$bank' '$last';
-    // if (bankAddress.contains('CUB')) {
-    //   messages = await query.querySms(address: bankAddress);
-    // };
-
     List<String> banks = ['CUB', 'SBI', 'HDFC', 'KOTAK', 'BOB'];
-    var amount1 = 0.0,
-        amount2 = 0.0,
-        amount3 = 0.0,
-        amount4 = 0.0,
-        amount5 = 0.0,
-        amount6 = 0.0,
-        amount7 = 0.0;
-    var strAmount1,
-        strAmount2,
-        strAmount3,
-        strAmount4,
-        strAmount5,
-        strAmount6,
-        strAmount7;
+    List amounts = List.filled(12, 0.0, growable: false);
+    List strAmounts = List.filled(12, null, growable: false);
     String? data;
     var userAmt;
+
 
     allMessages = await query.getAllSms;
     for (int i = 0; i < allMessages.length; i++) {
@@ -118,47 +102,38 @@ class MyInboxState extends State {
             if (allMessages[i].body.contains('is debited for') ||
                 allMessages[i].body.contains('is debited by') ||
                 allMessages[i].body.contains('is debited from')) {
-              if (allMessages[i].date.toString().contains('2022-07')) {
-                strAmount7 = allMessages[i].body.split("Rs")[1].split(" ")[0];
-                amount7 += double.parse(strAmount7);
-              } else if (allMessages[i].date.toString().contains('2022-06')) {
-                strAmount6 = allMessages[i].body.split("Rs")[1].split(" ")[0];
-                amount6 += double.parse(strAmount6);
-              } else if (allMessages[i].date.toString().contains('2022-05')) {
-                strAmount5 = allMessages[i].body.split("Rs")[1].split(" ")[0];
-                amount5 += double.parse(strAmount5);
-              } else if (allMessages[i].date.toString().contains('2022-04')) {
-                strAmount4 = allMessages[i].body.split("Rs")[1].split(" ")[0];
-                amount4 += double.parse(strAmount4);
-              } else if (allMessages[i].date.toString().contains('2022-03')) {
-                strAmount3 = allMessages[i].body.split("Rs")[1].split(" ")[0];
-                amount3 += double.parse(strAmount3);
-              } else if (allMessages[i].date.toString().contains('2022-02')) {
-                strAmount2 = allMessages[i].body.split("Rs")[1].split(" ")[0];
-                amount2 += double.parse(strAmount2);
-              } else if (allMessages[i].date.toString().contains('2022-01')) {
-                strAmount1 = allMessages[i].body.split("Rs")[1].split(" ")[0];
-                amount1 += double.parse(strAmount1);
-              }
+              months.forEach((key, value) async {
+                if (allMessages[i].date.toString().contains('2022-$key')) {
+                  strAmounts[int.parse(key) - 1] =
+                      allMessages[i].body.split("Rs.")[1].split(" ")[0];
+                  amounts[int.parse(key) - 1] +=
+                      double.parse(strAmounts[int.parse(key) - 1]);
+                  var transactionDetails = {
+                    'month': value,
+                    'date': allMessages[i].date.toString().split(' ')[0],
+                    'time': allMessages[i].date.toString().split(' ')[1],
+                    'amount': strAmounts[int.parse(key) - 1],
+                  };
+                  await db
+                      .collection('transactions')
+                      .doc(uid)
+                      .collection('details')
+                      .doc(allMessages[i].date.toString())
+                      .set(transactionDetails, SetOptions(merge: true));
+                }
+              });
             }
           }
         }
       }
-      ;
+      
     }
-    messages.add(amount1.toString());
-    messages.add(amount2.toString());
-    messages.add(amount3.toString());
-    messages.add(amount4.toString());
-    messages.add(amount5.toString());
-    messages.add(amount6.toString());
-    messages.add(amount7.toString());
-    for (int i = 0; i < messages.length; i++) {
-      data = messages[i];
-      userAmt = <String, dynamic>{"amount": data};
-    }
-    db.collection("debit").doc(uid).collection("amount").add(userAmt);
+    months.forEach((key, value) {
+      messages.add(amounts[int.parse(key) - 1]);
+    });
   }
+
+
 
   // readSMS() async {
   //   receiver.onSmsReceived.listen((SmsMessage msg) {
@@ -170,7 +145,4 @@ class MyInboxState extends State {
   //   });
   // }
 
-  // await query.querySms({
-  //   kinds: [SmsQueryKind.Inbox, SmsQueryKind.Sent]
-  // });
 }

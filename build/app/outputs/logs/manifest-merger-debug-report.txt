@@ -9,6 +9,8 @@ MERGED from [:firebase_core] /home/navneeth14/StudioProjects/miniproject/build/f
 MERGED from [:firebase_core] /home/navneeth14/StudioProjects/miniproject/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
 MERGED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:19
 MERGED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:19
+MERGED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:14:5-28:19
+MERGED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:14:5-28:19
 MERGED from [:url_launcher_android] /home/navneeth14/StudioProjects/miniproject/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
 MERGED from [:url_launcher_android] /home/navneeth14/StudioProjects/miniproject/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] /home/navneeth14/.gradle/caches/transforms-3/46b7b4d084b3d81741a5b81ce65c34e6/transformed/jetified-firebase-analytics-21.0.0/AndroidManifest.xml:7:5-20
@@ -59,6 +61,8 @@ MERGED from [androidx.core:core:1.6.0] /home/navneeth14/.gradle/caches/transform
 MERGED from [androidx.core:core:1.6.0] /home/navneeth14/.gradle/caches/transforms-3/1377ecc082df76fa18d0a5c00a428a5e/transformed/core-1.6.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/navneeth14/.gradle/caches/transforms-3/d3d0ee45eb2182951a42b71a33e8c48b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/navneeth14/.gradle/caches/transforms-3/d3d0ee45eb2182951a42b71a33e8c48b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /home/navneeth14/.gradle/caches/transforms-3/a2c1be964acccc85a882b654b6b615e1/transformed/jetified-threetenabp-1.2.3/AndroidManifest.xml:7:5-20
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /home/navneeth14/.gradle/caches/transforms-3/a2c1be964acccc85a882b654b6b615e1/transformed/jetified-threetenabp-1.2.3/AndroidManifest.xml:7:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] /home/navneeth14/.gradle/caches/transforms-3/1377ecc082df76fa18d0a5c00a428a5e/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
 	android:name
@@ -74,6 +78,7 @@ MERGED from [:cloud_firestore] /home/navneeth14/StudioProjects/miniproject/build
 MERGED from [:firebase_core] /home/navneeth14/StudioProjects/miniproject/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-19:12
 MERGED from [:geocoding] /home/navneeth14/StudioProjects/miniproject/build/geocoding/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-30:12
 MERGED from [:url_launcher_android] /home/navneeth14/StudioProjects/miniproject/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
 MERGED from [:sms_advanced] /home/navneeth14/StudioProjects/miniproject/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
 MERGED from [androidx.multidex:multidex:2.0.0] /home/navneeth14/.gradle/caches/transforms-3/4e1699bac89dd1175d6d06db5b332bdb/transformed/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
@@ -87,6 +92,7 @@ MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /home/navneeth14/
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] /home/navneeth14/.gradle/caches/transforms-3/9245305e913adc0b724d3ae0cdabe45e/transformed/jetified-firebase-appcheck-interop-16.0.0/AndroidManifest.xml:15:1-26:12
 MERGED from [com.google.firebase:firebase-installations:17.0.1] /home/navneeth14/.gradle/caches/transforms-3/3bc107885133f92ea1c12e6493eeeb56/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-common:20.1.1] /home/navneeth14/.gradle/caches/transforms-3/5882a8c0218fa297639de0cab1596f65/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:15:1-40:12
+MERGED from [androidx.media:media:1.1.0] /home/navneeth14/.gradle/caches/transforms-3/2165fe86f612d6397de0240d104c6899/transformed/media-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/25ed9ee8421d21710e96b956b93aace5/transformed/jetified-play-services-location-17.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement:21.0.0] /home/navneeth14/.gradle/caches/transforms-3/9dab7482d42c8e98d4ff546f8527a75c/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:17:1-46:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk:21.0.0] /home/navneeth14/.gradle/caches/transforms-3/d16009455016e31e6fda2e7c98f38798/transformed/jetified-play-services-measurement-sdk-21.0.0/AndroidManifest.xml:17:1-25:12
@@ -125,8 +131,9 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /home/navneeth14/.gradle/
 MERGED from [androidx.documentfile:documentfile:1.0.0] /home/navneeth14/.gradle/caches/transforms-3/3e5bf45a3a871fab54c754ad3d80a4aa/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/navneeth14/.gradle/caches/transforms-3/6f6054deddcc18f1b527182e40762c66/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/navneeth14/.gradle/caches/transforms-3/b89023fcbc3bf281c0c8fb52901a1f15/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/navneeth14/.gradle/caches/transforms-3/21850c3d5e683adee7e0b0c674565702/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.44.1] /home/navneeth14/.gradle/caches/transforms-3/4bdc31de3ee1f99ae7729c372870354b/transformed/jetified-grpc-android-1.44.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /home/navneeth14/.gradle/caches/transforms-3/a2c1be964acccc85a882b654b6b615e1/transformed/jetified-threetenabp-1.2.3/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/navneeth14/.gradle/caches/transforms-3/21850c3d5e683adee7e0b0c674565702/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/navneeth14/.gradle/caches/transforms-3/b182db743e695f0f9ae8464d5b438870/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
 INJECTED from /home/navneeth14/StudioProjects/miniproject/android/app/src/debug/AndroidManifest.xml:1:1-8:12
 INJECTED from /home/navneeth14/StudioProjects/miniproject/android/app/src/debug/AndroidManifest.xml:1:1-8:12
@@ -171,6 +178,8 @@ MERGED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/bu
 MERGED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding] /home/navneeth14/StudioProjects/miniproject/build/geocoding/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding] /home/navneeth14/StudioProjects/miniproject/build/geocoding/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:url_launcher_android] /home/navneeth14/StudioProjects/miniproject/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:url_launcher_android] /home/navneeth14/StudioProjects/miniproject/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:sms_advanced] /home/navneeth14/StudioProjects/miniproject/build/sms_advanced/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
@@ -197,6 +206,8 @@ MERGED from [com.google.firebase:firebase-installations:17.0.1] /home/navneeth14
 MERGED from [com.google.firebase:firebase-installations:17.0.1] /home/navneeth14/.gradle/caches/transforms-3/3bc107885133f92ea1c12e6493eeeb56/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-common:20.1.1] /home/navneeth14/.gradle/caches/transforms-3/5882a8c0218fa297639de0cab1596f65/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-common:20.1.1] /home/navneeth14/.gradle/caches/transforms-3/5882a8c0218fa297639de0cab1596f65/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] /home/navneeth14/.gradle/caches/transforms-3/2165fe86f612d6397de0240d104c6899/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] /home/navneeth14/.gradle/caches/transforms-3/2165fe86f612d6397de0240d104c6899/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/25ed9ee8421d21710e96b956b93aace5/transformed/jetified-play-services-location-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/navneeth14/.gradle/caches/transforms-3/25ed9ee8421d21710e96b956b93aace5/transformed/jetified-play-services-location-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement:21.0.0] /home/navneeth14/.gradle/caches/transforms-3/9dab7482d42c8e98d4ff546f8527a75c/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:20:5-44
@@ -273,10 +284,12 @@ MERGED from [androidx.print:print:1.0.0] /home/navneeth14/.gradle/caches/transfo
 MERGED from [androidx.print:print:1.0.0] /home/navneeth14/.gradle/caches/transforms-3/6f6054deddcc18f1b527182e40762c66/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/navneeth14/.gradle/caches/transforms-3/b89023fcbc3bf281c0c8fb52901a1f15/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/navneeth14/.gradle/caches/transforms-3/b89023fcbc3bf281c0c8fb52901a1f15/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/navneeth14/.gradle/caches/transforms-3/21850c3d5e683adee7e0b0c674565702/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/navneeth14/.gradle/caches/transforms-3/21850c3d5e683adee7e0b0c674565702/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.44.1] /home/navneeth14/.gradle/caches/transforms-3/4bdc31de3ee1f99ae7729c372870354b/transformed/jetified-grpc-android-1.44.1/AndroidManifest.xml:5:5-7:41
 MERGED from [io.grpc:grpc-android:1.44.1] /home/navneeth14/.gradle/caches/transforms-3/4bdc31de3ee1f99ae7729c372870354b/transformed/jetified-grpc-android-1.44.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /home/navneeth14/.gradle/caches/transforms-3/a2c1be964acccc85a882b654b6b615e1/transformed/jetified-threetenabp-1.2.3/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /home/navneeth14/.gradle/caches/transforms-3/a2c1be964acccc85a882b654b6b615e1/transformed/jetified-threetenabp-1.2.3/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/navneeth14/.gradle/caches/transforms-3/21850c3d5e683adee7e0b0c674565702/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /home/navneeth14/.gradle/caches/transforms-3/21850c3d5e683adee7e0b0c674565702/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/navneeth14/.gradle/caches/transforms-3/b182db743e695f0f9ae8464d5b438870/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/navneeth14/.gradle/caches/transforms-3/b182db743e695f0f9ae8464d5b438870/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 INJECTED from /home/navneeth14/StudioProjects/miniproject/android/app/src/debug/AndroidManifest.xml
@@ -361,6 +374,52 @@ ADDED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/bui
 		ADDED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
 	android:name
 		ADDED from [:geolocator_android] /home/navneeth14/StudioProjects/miniproject/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-78
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-66
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-63
+uses-permission#android.permission.USE_FULL_SCREEN_INTENT
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-78
+uses-permission#android.permission.SCHEDULE_EXACT_ALARM
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:22-76
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-17:40
+	android:exported
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-97
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:18:9-27:20
+	android:exported
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-101
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-26:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:22:17-79
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:22:25-76
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-84
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:25-81
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-79
+action#com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] /home/navneeth14/StudioProjects/miniproject/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-79
 activity#io.flutter.plugins.urllauncher.WebViewActivity
 ADDED from [:url_launcher_android] /home/navneeth14/StudioProjects/miniproject/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
 	android:exported
