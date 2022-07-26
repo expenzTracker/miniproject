@@ -434,7 +434,11 @@
       "languageVersion": "2.17"
     }
   ],
+<<<<<<< HEAD
   "generated": "2022-07-25T18:43:13.954379Z",
+=======
+  "generated": "2022-07-26T05:36:13.778546Z",
+>>>>>>> d032b344a5257e0488409f5bf5e1e5c2bae974d6
   "generator": "pub",
   "generatorVersion": "2.17.5"
 }

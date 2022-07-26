@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:google_place/google_place.dart' as gp;
 
 class LocationRoute extends StatefulWidget {
   const LocationRoute({Key? key}) : super(key: key);
@@ -34,6 +34,7 @@ class LocationRouteState extends State<LocationRoute> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Get Current Location"),
+        backgroundColor: ColorPalette.piggyViolet,
       ),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -55,11 +56,14 @@ class LocationRouteState extends State<LocationRoute> {
                     String locality = position[2].toString().substring(
                         position[0].toString().indexOf('Name:') + 5,
                         position[0].toString().indexOf('Country'));
+                    String place = 'Government Engineering College Thrissur Kerala';
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("ADDRESS:\n $locality"),
-                        Text("COORDINATES:\n $latitude $longitude"),
+                        Text("\nCOORDINATES:\n $latitude , $longitude"),
+                        Text("\nPLACE:\n $place")
                       ],
                     );
                   } else if (snapshot.hasError) {
@@ -105,6 +109,9 @@ class LocationRouteState extends State<LocationRoute> {
     Position coordinates = await getLocation();
     latitude = coordinates.latitude;
     longitude = coordinates.longitude;
+    if(latitude.toString().contains('10.55') && longitude.toString().contains('76.22')){
+      
+    }
 
     LocationSettings locationSettings = AndroidSettings(
       accuracy: LocationAccuracy.high,

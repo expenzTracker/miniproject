@@ -1,5 +1,6 @@
 first_app
 2.17
+<<<<<<< HEAD
 file:///home/niranjan/Documents/projects/miniproject/
 file:///home/niranjan/Documents/projects/miniproject/lib/
 args
@@ -286,4 +287,8 @@ flutter_web_plugins
 2.17
 file:///home/niranjan/snap/flutter/common/flutter/packages/flutter_web_plugins/
 file:///home/niranjan/snap/flutter/common/flutter/packages/flutter_web_plugins/lib/
+=======
+file:///D:/projects/mypiggy/miniproject/
+file:///D:/projects/mypiggy/miniproject/lib/
+>>>>>>> d032b344a5257e0488409f5bf5e1e5c2bae974d6
 2

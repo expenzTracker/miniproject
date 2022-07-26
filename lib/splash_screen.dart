@@ -1,3 +1,4 @@
+import 'package:first_app/home.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'login_screen.dart';
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => RegisterScreen(),
+          builder: (context) => const RegisterScreen(),
         ),
       ),
     );
@@ -32,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child: Stack( 
+        child: Stack(
           children: [
             // Image(
             //   image: const AssetImage("images/piggybank.jpg"),
@@ -46,8 +47,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 Container(
                   alignment: Alignment.center,
                   child: Column(
-                    children: [
-                      const Image(
+                    children: const [
+                      Image(
                         //logo
                         image: AssetImage("images/piggy.png"),
                         height: 50,
