@@ -34,8 +34,8 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
         spentData=0.0;
     return Scaffold(
-      appBar: AppBar(title: const Text("Dashboard")),
-      backgroundColor: Colors.black,
+      appBar: AppBar(title: const Text("Dashboard"),backgroundColor: ColorPalette.piggyViolet,),
+      backgroundColor: ColorPalette.piggyBlack,
       body: FutureBuilder(
                   future: getSpentAmount(),
                   builder: (context,snapshot){

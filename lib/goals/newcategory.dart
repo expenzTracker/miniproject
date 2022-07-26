@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 import '../classes/category.dart';
     final db = FirebaseFirestore.instance;
@@ -40,14 +41,15 @@ class NewCategory extends StatelessWidget {
                           ElevatedButton(
                             onPressed: nameController.text.isNotEmpty ? () => _addCategory() : null,
                             style: ButtonStyle(
-                              backgroundColor: nameController.text.isNotEmpty ? MaterialStateProperty.all<Color>(Colors.deepPurple) : null,
+                              backgroundColor: nameController.text.isNotEmpty ? MaterialStateProperty.all<Color>(ColorPalette.piggyGreenDark) : null,
                               overlayColor: MaterialStateProperty.all<Color>(Colors.purple), 
                             ), 
-                            child: Text((_category != null && nameController.text.isNotEmpty) ? 'Edit To Do' : 'Add To Do'),
+                            child: Text((_category != null && nameController.text.isNotEmpty) ? 'Edit ' : 'Add '),
                           ),
                           Visibility (
                             visible: nameController.text.isNotEmpty || amountController.text.isNotEmpty,
                             child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(primary: ColorPalette.piggyViolet,),
                               onPressed: () => _clear(), 
                               child: const Text('Clear'),
                             )),

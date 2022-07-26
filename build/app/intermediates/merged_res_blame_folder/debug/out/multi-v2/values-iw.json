@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\projects\\miniproject\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-iw\\values-iw.xml",
+            "outputFile": "D:\\projects\\mypiggy\\miniproject\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-iw\\values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\values-iw\\values-iw.xml",

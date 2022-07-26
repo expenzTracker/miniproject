@@ -1,6 +1,7 @@
 // import 'package:flutter/foundation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 // import 'add_category_route.dart';
 import '../classes/category.dart';
@@ -133,8 +134,10 @@ class _MyGoalsState extends State<MyGoals>{
 
     
     return Scaffold(
+      backgroundColor: ColorPalette.piggyBlack,
       appBar: AppBar(
         title: const Text('My Goals'),
+        backgroundColor: ColorPalette.piggyViolet,
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -164,6 +167,9 @@ class _MyGoalsState extends State<MyGoals>{
                ),
       
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
                 child: const Text('Set Goal'),
                 onPressed: () {
                   db.collection('goals').doc(uid).set({

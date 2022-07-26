@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\projects\\miniproject\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ka\\values-ka.xml",
+            "outputFile": "D:\\projects\\mypiggy\\miniproject\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ka\\values-ka.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\33bff2b79f5a68c988cfc0a545303581\\transformed\\browser-1.4.0\\res\\values-ka\\values-ka.xml",

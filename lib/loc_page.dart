@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
@@ -34,6 +35,7 @@ class LocationRouteState extends State<LocationRoute> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Get Current Location"),
+        backgroundColor: ColorPalette.piggyViolet,
       ),
       body: RefreshIndicator(
         onRefresh: () async {

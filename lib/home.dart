@@ -30,9 +30,10 @@ class Home extends StatelessWidget {
     
     String? data;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorPalette.piggyBlack,
       appBar: AppBar(
         title: const Text('Home'),
+        backgroundColor: ColorPalette.piggyViolet
       ),
 
       body: SingleChildScrollView(
@@ -41,16 +42,9 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                child: const Text('Location Track route'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LocationRoute()),
-                  );
-                },
-              ),
-              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
                 child: const Text('Choose Bank'),
                 onPressed: () {
                   Navigator.push(
@@ -60,6 +54,9 @@ class Home extends StatelessWidget {
                 },
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
                 child: const Text('Set goals'),
                 onPressed: () {
                   Navigator.push(
@@ -69,11 +66,27 @@ class Home extends StatelessWidget {
                 },
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
                 child: const Text('Dashboard'),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const Dashboard()),
+                  );
+                },
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
+                child: const Text('Location Track route'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LocationRoute()),
                   );
                 },
               ),

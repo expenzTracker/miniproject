@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\projects\\miniproject\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
+            "outputFile": "D:\\projects\\mypiggy\\miniproject\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\7a40f7771e6fe7310d328c9c8c840352\\transformed\\jetified-play-services-basement-18.0.0\\res\\values-mr\\values.xml",
