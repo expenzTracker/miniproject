@@ -20,8 +20,10 @@ const String _heroAddSpend = 'add-spend';
   ];
 
    var spendData = <String, dynamic>{
-      "spendAmount": "0",
+      "amount": "0",
       "category": "-- Select category --",
+      "date": DateTime.now().day.toString(),
+
     };
 
 /// [HeroDialogRoute] to achieve the popup effect.
@@ -38,19 +40,19 @@ class AddSpend extends StatefulWidget {
 
 class _AddSpendState extends State<AddSpend> {
 
-   String spendAmount = '';
-    // final spendAmountController = TextEditingController();
+   String amount = '';
+    // final amountController = TextEditingController();
 
 //  @override
 //   void initState() {
 //     super.initState();
-//     spendAmountController.addListener(_handleSpendAmountChange);
+//     amountController.addListener(_handleamountChange);
 //     category_of_spend=items[0];
 //   }
 
-  // void _handleSpendAmountChange() {
+  // void _handleamountChange() {
   //   setState(() {
-  //     spendAmount = spendAmountController.text;
+  //     amount = amountController.text;
   //   });
   // }
 
@@ -90,7 +92,7 @@ class _AddSpendState extends State<AddSpend> {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextFormField(
                           onChanged: (value) {
-                            spendAmount=value;
+                            amount=value;
                           },
                           decoration: const InputDecoration(
                             border: InputBorder.none,
@@ -122,7 +124,7 @@ class _AddSpendState extends State<AddSpend> {
                           onChanged: (String? newValue) {
                             setState(() {
                               category_of_spend = newValue!;
-                              spendData["spendAount"] = spendAmount;
+                              spendData["spendAount"] = amount;
                               spendData["category"] = category_of_spend;
                               
                             });
@@ -138,7 +140,7 @@ class _AddSpendState extends State<AddSpend> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        print(spendAmount);
+                        print(amount);
                         print(category_of_spend);
                         db.collection("users").doc(uid).collection("transactions").add(spendData);
                       },

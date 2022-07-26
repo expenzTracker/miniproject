@@ -59,10 +59,11 @@ class _MyGoalsState extends State<MyGoals>{
       );
 
       var cat = {
+        'name' : category.name,
         'amount':category.amount,
       };
 
-      db.collection('goals').doc(uid).collection('category').doc(category.name).set(cat);
+      db.collection('goals').doc(uid).collection('categories').add(cat);
 
  
 
