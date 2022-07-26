@@ -8,21 +8,17 @@ import 'newcategory.dart';
 import 'categoryitem.dart';
 import 'categorylist.dart';
 
-    final db = FirebaseFirestore.instance;
-    final user = FirebaseAuth.instance.currentUser;
-    final uid = user?.uid;
+final db = FirebaseFirestore.instance;
+final user = FirebaseAuth.instance.currentUser;
+final uid = user?.uid;
 
-class MyGoals extends StatefulWidget{
-
+class MyGoals extends StatefulWidget {
   const MyGoals({Key? key}) : super(key: key);
   @override
   State<StatefulWidget> createState() => _MyGoalsState();
 }
 
-  
-class _MyGoalsState extends State<MyGoals>{
-
-    
+class _MyGoalsState extends State<MyGoals> {
   String amount = '';
   String name = '';
   int maxId = 0;
@@ -30,7 +26,6 @@ class _MyGoalsState extends State<MyGoals>{
   final nameController = TextEditingController();
   final amountController = TextEditingController();
   List<Category> categories = [];
-
 
   @override
   void initState() {
@@ -51,55 +46,51 @@ class _MyGoalsState extends State<MyGoals>{
     });
   }
 
-    void _addCategory(){
+  void _addCategory() {
+    final category = Category(name: name, amount: amount);
 
-      final category = Category ( 
-        name: name,
-        amount: amount
-      );
+    var cat = {
+      'name': category.name,
+      'amount': category.amount,
+    };
 
-      var cat = {
-        'name':category.name,
-        'amount':category.amount,
-      };
+    db.collection('goals').doc(uid).collection('categories').add(cat);
 
-      db.collection('goals').doc(uid).collection('categories').add(cat);
+    setState(() {
+      categories.add(category);
+    });
 
- 
+    setState(() {
+      amount = '';
+      maxId = maxId++;
+      name = '';
+    });
 
-        setState(() {
-          categories.add(category);
-        });
+    amountController.text = '';
+    nameController.text = '';
+  }
 
-      setState(() {
-        amount = '';
-        maxId = maxId++;
-        name = '';
-      });
-
-      amountController.text = '';
-      nameController.text = '';
-      
-    }
-
-  void _editCategory(Category categoryitem){
+  void _editCategory(Category categoryitem) {
     setState(() {
       category = categoryitem;
       amount = categoryitem.amount;
       name = categoryitem.name;
     });
+
     amountController.text = categoryitem.amount;
     nameController.text = categoryitem.name;
+
     _renderShowModal();
   }
 
-  void _deleteCategory(Category categoryitem){
+  void _deleteCategory(Category categoryitem) {
     setState(() {
-      categories = List.from(categories)..removeAt(categories.indexOf(categoryitem));
+      categories = List.from(categories)
+        ..removeAt(categories.indexOf(categoryitem));
     });
   }
 
-  void _clear(){
+  void _clear() {
     amountController.text = '';
     nameController.text = '';
     setState(() {
@@ -109,30 +100,22 @@ class _MyGoalsState extends State<MyGoals>{
     });
   }
 
-  _renderShowModal(){
+  _renderShowModal() {
     return showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
         return ValueListenableBuilder(
-          valueListenable: nameController,
-          builder: (context, amount, child) {
-            return NewCategory(nameController, amountController, _addCategory, _clear, category);
-          });
+            valueListenable: nameController,
+            builder: (context, amount, child) {
+              return NewCategory(nameController, amountController, _addCategory,
+                  _clear, category);
+            });
       },
     );
   }
 
-
-
-  
-
-
- 
   @override
   Widget build(BuildContext context) {
-
-
-    
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Goals'),
@@ -143,23 +126,18 @@ class _MyGoalsState extends State<MyGoals>{
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-               Padding(
-                 padding: const EdgeInsets.all(30.0),
-                 child: TextField( 
-                 decoration: InputDecoration(
-      
-                   border: OutlineInputBorder(
-                     borderRadius: BorderRadius.circular(40)
-                   ),
-                   hintText: 'Enter your monthly goals',
-                   
-                   filled: true,
-                   fillColor: Colors.grey,
-                   ),
-      
-                   ),
-               ),
-      
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    hintText: 'Enter your monthly goals',
+                    filled: true,
+                    fillColor: Colors.grey,
+                  ),
+                ),
+              ),
               ElevatedButton(
                 child: const Text('Set Goal'),
                 onPressed: () {
@@ -168,53 +146,55 @@ class _MyGoalsState extends State<MyGoals>{
                   }, SetOptions(merge: true));
                 },
               ),
-      
               const SizedBox(
                 height: 20,
               ),
-      
               Container(
-                width: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color:Colors.grey,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical:20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                        child: Text('Categories',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-                      ),
-                      CategoryList(categories, _editCategory, _deleteCategory),
-                      Container( 
-                        width:100,
-                        height:100,
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          shape: BoxShape.circle,
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            _renderShowModal();
-                          },
-                          child: const Text('Add category',style: TextStyle(color: Colors.grey),),
-                          ) ,
-                        ),
-                      ]
-                    ),
-                  )
-                )                    
+                  width: 300,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.grey,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 0, vertical: 20),
+                            child: Text(
+                              'Categories',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                          ),
+                          CategoryList(
+                              categories, _editCategory, _deleteCategory),
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: const BoxDecoration(
+                              color: Colors.black,
+                              shape: BoxShape.circle,
+                            ),
+                            child: TextButton(
+                              onPressed: () {
+                                _renderShowModal();
+                              },
+                              child: const Text(
+                                'Add category',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ),
+                          ),
+                        ]),
+                  ))
             ],
-      
           ),
         ),
       ),
     );
   }
 }
-
-
-

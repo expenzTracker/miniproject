@@ -6,6 +6,8 @@ import 'package:first_app/sms_page.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/my_goals.dart';
 
+import 'category_wise.dart';
+
 class Home extends StatelessWidget {
   final uid;
   const Home({Key? key, this.uid}) : super(key: key);
@@ -84,7 +86,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ChooseBank(uid : uid)),
+                  MaterialPageRoute(builder: (context) => ChooseBank(uid: uid)),
                 );
               },
             ),
@@ -94,6 +96,15 @@ class Home extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const MyGoals()),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Category-wise'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CategoryWise()),
                 );
               },
             ),
