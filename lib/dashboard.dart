@@ -123,7 +123,7 @@ class _DashboardState extends State<Dashboard> {
 }
 
 getAmount() async {
-  await db.collection("goals").doc(uid).get().then(
+  await db.collection("goals").doc(uid).get().then( 
     (DocumentSnapshot doc) {
       budgetData = doc.data() as Map<String, dynamic>;
     },

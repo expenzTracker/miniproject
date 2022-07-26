@@ -70,6 +70,11 @@ class _MyGoalsState extends State<MyGoals> {
       'amount': category.amount,
     };
 
+var cat = {
+        'name' : category.name,
+        'amount':category.amount,
+      };
+
     db.collection('goals').doc(uid).collection('categories').add(cat);
 
     setState(() {
@@ -225,10 +230,6 @@ class _MyGoalsState extends State<MyGoals> {
                   ],
                 ),
               ),
-<<<<<<< HEAD
-            );
-          }),
-=======
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   primary: ColorPalette.piggyGreenDark
@@ -291,7 +292,6 @@ class _MyGoalsState extends State<MyGoals> {
           ),
         ),
       ),
->>>>>>> d032b344a5257e0488409f5bf5e1e5c2bae974d6
     );
   }
 }
