@@ -11,7 +11,6 @@ import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
 import 'category_wise.dart';
 
-const String _heroAddSpend = 'add-spend';
 
 class Home extends StatelessWidget {
   final uid;
@@ -25,9 +24,10 @@ class Home extends StatelessWidget {
 
     String? data;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorPalette.piggyBlack,
       appBar: AppBar(
         title: const Text('Home'),
+        backgroundColor: ColorPalette.piggyViolet
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -35,16 +35,9 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                child: const Text('Location Track route'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LocationRoute()),
-                  );
-                },
-              ),
-              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
                 child: const Text('Choose Bank'),
                 onPressed: () {
                   Navigator.push(
@@ -55,6 +48,9 @@ class Home extends StatelessWidget {
                 },
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
                 child: const Text('Set goals'),
                 onPressed: () {
                   Navigator.push(
@@ -64,6 +60,9 @@ class Home extends StatelessWidget {
                 },
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
+                ),
                 child: const Text('Dashboard'),
                 onPressed: () {
                   Navigator.push(
@@ -72,30 +71,19 @@ class Home extends StatelessWidget {
                   );
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      AddSpendRoute(builder: (context) => const AddSpend()),
-                    );
-                  },
-                  child: Hero(
-                    tag: _heroAddSpend,
-                    child: Material(
-                      color: ColorPalette.piggyPink,
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32)),
-                      child: const Icon(
-                        Icons.add_rounded,
-                        size: 56,
-                      ),
-                    ),
-                  ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: ColorPalette.piggyGreenDark
                 ),
-              )
+                child: const Text('Location Track route'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LocationRoute()),
+                  );
+                },
+              ),
             ],
           ),
         ),

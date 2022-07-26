@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 
 String dropdownvalue = 'State Bank of India';  
@@ -36,6 +37,7 @@ class _ChooseBankState extends State<ChooseBank> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose Bank'),
+        backgroundColor: ColorPalette.piggyViolet,
       ),
       body: Center(
         child: Column(
