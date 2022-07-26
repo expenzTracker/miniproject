@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/category_wise.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,11 +11,10 @@ final db = FirebaseFirestore.instance;
 final user = FirebaseAuth.instance.currentUser;
 final uid = user?.uid;
 var budgetData;
-var spentData=0.0;
+var spentData = 0.0;
 var spentDataDoc;
-double budget=0.0;
+double budget = 0.0;
 
-    
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
@@ -27,85 +27,101 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
-
   }
+
   @override
   Widget build(BuildContext context) {
-        spentData=0.0;
+    spentData = 0.0;
     return Scaffold(
       appBar: AppBar(title: const Text("Dashboard"),backgroundColor: ColorPalette.piggyViolet,),
-      backgroundColor: ColorPalette.piggyBlack,
-      body: FutureBuilder(
-                  future: getSpentAmount(),
-                  builder: (context,snapshot){
-                    return Center(
-                      child: Container(
+      backgroundColor: Colors.black,
+      body: Column(
+        children: [
+          FutureBuilder(
+              future: getSpentAmount(),
+              builder: (context, snapshot) {
+                return Column(
+                  children: [
+                    Container(
                         width: 300,
                         height: 200,
-                        padding: new EdgeInsets.all(10.0),  
+                        padding: new EdgeInsets.all(10.0),
                         child: Card(
-                          color:ColorPalette.piggyGrey,
-                          shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(30.0)),
+                          color: ColorPalette.piggyGrey,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 textBaseline: TextBaseline.alphabetic,
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 children: [
-                                  Text(
-                                    "Rs.${(budget-spentData).toString()}",
-                                    style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)
-                                    ),
-                                  const Text("left",style: TextStyle(fontSize: 10))
+                                  Text("Rs.${(budget - spentData).toString()}",
+                                      style: const TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold)),
+                                  const Text("left",
+                                      style: TextStyle(fontSize: 10))
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 textBaseline: TextBaseline.alphabetic,
                                 crossAxisAlignment: CrossAxisAlignment.baseline,
                                 children: [
-                                  Text(
-                                    "Rs.${spentData.toString()}",
-                                    style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold)
-                                    ),
-                                  const Text("spent",style: TextStyle(fontSize: 14))
+                                  Text("Rs.${spentData.toString()}",
+                                      style: const TextStyle(
+                                          fontSize: 23,
+                                          fontWeight: FontWeight.bold)),
+                                  const Text("spent",
+                                      style: TextStyle(fontSize: 14))
                                 ],
                               ),
-                            
-                          ],),
-                        )
-                      ),
-                    );
-                  }
+                            ],
+                          ),
+                        )),
+                    // CategoryWise(),
+                  ],
+                );
+              }),
+          Expanded(child: SizedBox(height: 300, child: CategoryWise()))
+        ],
       ),
     );
-    }}
+  }
+}
 
 getAmount() async {
   await db.collection("goals").doc(uid).get().then(
     (DocumentSnapshot doc) {
-    budgetData = doc.data() as Map<String, dynamic>;
-  },
+      budgetData = doc.data() as Map<String, dynamic>;
+    },
     onError: (e) => print("Error getting document: $e"),
-    );
-  budget=double.parse(budgetData?['monthly_goal']);
+  );
+  budget = double.parse(budgetData?['monthly_goal']);
   // return budget;
 }
 
 getSpentAmount() async {
-      getAmount();
-  await db.collection("transactions").doc(uid).collection('details').where("month",isEqualTo:'June').get().then(
+  getAmount();
+  await db
+      .collection("transactions")
+      .doc(uid)
+      .collection('details')
+      .where("month", isEqualTo: 'July')
+      .get()
+      .then(
     (QuerySnapshot doc) {
       spentDataDoc = doc.docs;
-      spentDataDoc.forEach((value)=>{
-        spentData+=(double.parse((value.data() as Map)['amount']))
-      });
-  },
+      spentDataDoc.forEach((value) =>
+          {spentData += (double.parse((value.data() as Map)['amount']))});
+    },
     onError: (e) => print("Error getting document: $e"),
-    );
-  
+  );
+
   return spentData;
 }

@@ -4,7 +4,6 @@ import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:google_place/google_place.dart' as gp;
 
 class LocationRoute extends StatefulWidget {
   const LocationRoute({Key? key}) : super(key: key);

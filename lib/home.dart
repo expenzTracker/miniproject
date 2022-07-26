@@ -9,11 +9,9 @@ import 'package:flutter/material.dart';
 import './goals/my_goals.dart';
 import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
-
-
+import 'category_wise.dart';
 
 const String _heroAddSpend = 'add-spend';
-
 
 class Home extends StatelessWidget {
   final uid;
@@ -21,13 +19,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     final db = FirebaseFirestore.instance;
     final user = FirebaseAuth.instance.currentUser;
     final uid = user?.uid;
-    
-    
+
     String? data;
     return Scaffold(
       backgroundColor: ColorPalette.piggyBlack,
@@ -35,7 +30,6 @@ class Home extends StatelessWidget {
         title: const Text('Home'),
         backgroundColor: ColorPalette.piggyViolet
       ),
-
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -49,7 +43,8 @@ class Home extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ChooseBank(uid : uid)),
+                    MaterialPageRoute(
+                        builder: (context) => ChooseBank(uid: uid)),
                   );
                 },
               ),
@@ -95,17 +90,17 @@ class Home extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
-                    context,
-                    AddSpendRoute(builder: (context) => const AddSpend()),
-                  );
+                      context,
+                      AddSpendRoute(builder: (context) => const AddSpend()),
+                    );
                   },
                   child: Hero(
                     tag: _heroAddSpend,
                     child: Material(
                       color: ColorPalette.piggyPink,
                       elevation: 2,
-                      shape:
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32)),
                       child: const Icon(
                         Icons.add_rounded,
                         size: 56,
@@ -113,10 +108,9 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ),
-              )      
+              )
             ],
           ),
-
         ),
       ),
     );
