@@ -26,6 +26,21 @@ class _MyGoalsState extends State<MyGoals> {
   final nameController = TextEditingController();
   final amountController = TextEditingController();
   List<Category> categories = [];
+  getcats() async {
+    categories = [];
+    await db
+        .collection("goals")
+        .doc(uid)
+        .collection("categories")
+        .get()
+        .then((value) {
+      for (var element in value.docs) {
+        categories.add(Category(
+            name: element.data()['name'], amount: element.data()['amount']));
+      }
+      return categories;
+    });
+  }
 
   @override
   void initState() {
@@ -120,87 +135,95 @@ class _MyGoalsState extends State<MyGoals> {
       appBar: AppBar(
         title: const Text('My Goals'),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: TextFormField(
-                  onChanged: (value) {
-                    amount = value;
-                    print(amount);
-                  },
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    hintText: 'Enter your monthly goals',
-                    filled: true,
-                    fillColor: Colors.grey,
-                  ),
+      body: FutureBuilder(
+          future: getcats(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              categories = snapshot.data as List<Category>;
+            }
+            return SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: TextFormField(
+                        onChanged: (value) {
+                          amount = value;
+                          print(amount);
+                        },
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40)),
+                          hintText: 'Enter your monthly goals',
+                          filled: true,
+                          fillColor: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      child: const Text('Set Goal'),
+                      onPressed: () {
+                        db.collection('goals').doc(uid).set(
+                          {
+                            'monthly_goal': amount,
+                          },
+                        );
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                        width: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 20),
+                                  child: Text(
+                                    'Categories',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                                CategoryList(
+                                    categories, _editCategory, _deleteCategory),
+                                Container(
+                                  width: 100,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: TextButton(
+                                    onPressed: () {
+                                      _renderShowModal();
+                                    },
+                                    child: const Text(
+                                      'Add category',
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ),
+                                ),
+                              ]),
+                        ))
+                  ],
                 ),
               ),
-              ElevatedButton(
-                child: const Text('Set Goal'),
-                onPressed: () {
-                  db.collection('goals').doc(uid).set(
-                    {
-                      'monthly_goal': amount,
-                    },
-                  );
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 0, vertical: 20),
-                            child: Text(
-                              'Categories',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                          ),
-                          CategoryList(
-                              categories, _editCategory, _deleteCategory),
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: const BoxDecoration(
-                              color: Colors.black,
-                              shape: BoxShape.circle,
-                            ),
-                            child: TextButton(
-                              onPressed: () {
-                                _renderShowModal();
-                              },
-                              child: const Text(
-                                'Add category',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ),
-                          ),
-                        ]),
-                  ))
-            ],
-          ),
-        ),
-      ),
+            );
+          }),
     );
   }
 }
