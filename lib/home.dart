@@ -11,7 +11,6 @@ import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
 import 'category_wise.dart';
 
-const String _heroAddSpend = 'add-spend';
 
 class Home extends StatelessWidget {
   final uid;
@@ -85,30 +84,6 @@ class Home extends StatelessWidget {
                   );
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      AddSpendRoute(builder: (context) => const AddSpend()),
-                    );
-                  },
-                  child: Hero(
-                    tag: _heroAddSpend,
-                    child: Material(
-                      color: ColorPalette.piggyPink,
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32)),
-                      child: const Icon(
-                        Icons.add_rounded,
-                        size: 56,
-                      ),
-                    ),
-                  ),
-                ),
-              )
             ],
           ),
         ),

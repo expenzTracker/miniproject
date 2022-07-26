@@ -4,6 +4,8 @@ import 'package:first_app/category_wise.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'addspend/add_spend.dart';
+import 'addspend/add_spend_route.dart';
 
 import 'classes/color_palette.dart';
 
@@ -14,6 +16,7 @@ var budgetData;
 var spentData = 0.0;
 var spentDataDoc;
 double budget = 0.0;
+const String _heroAddSpend = 'add-spend';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -88,7 +91,31 @@ class _DashboardState extends State<Dashboard> {
                   ],
                 );
               }),
-          Expanded(child: SizedBox(height: 300, child: CategoryWise()))
+          Expanded(child: SizedBox(height: 300, child: CategoryWise())),
+          Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      AddSpendRoute(builder: (context) => const AddSpend()),
+                    );
+                  },
+                  child: Hero(
+                    tag: _heroAddSpend,
+                    child: Material(
+                      color: ColorPalette.piggyPink,
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32)),
+                      child: const Icon(
+                        Icons.add_rounded,
+                        size: 56,
+                      ),
+                    ),
+                  ),
+                ),
+              )
         ],
       ),
     );
