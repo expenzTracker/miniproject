@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:sms_advanced/sms_advanced.dart';
 
 import 'components/navbar.dart';
+import 'drawer_component.dart';
 
 final db = FirebaseFirestore.instance;
 final user = FirebaseAuth.instance.currentUser;
@@ -52,6 +53,7 @@ class MyInboxState extends State {
           backgroundColor: ColorPalette.piggyViolet,
         ),
         bottomNavigationBar: const Navbar(),
+        drawer: const DrawerComponent(),
         body: RefreshIndicator(
           onRefresh: () async {
             setState(() {
@@ -65,7 +67,7 @@ class MyInboxState extends State {
               //   data.toString()
               // );
               return ListView.separated(
-                separatorBuilder: (context, index) => Divider(
+                separatorBuilder: (context, index) => const Divider(
                   color: Colors.black,
                 ),
                 itemCount: messages.length,
@@ -137,11 +139,11 @@ class MyInboxState extends State {
 
   // readSMS() async {
   //   receiver.onSmsReceived.listen((SmsMessage msg) {
-  //     print(msg.address);
-  //     print(msg.body);
-  //     print(msg.sender);
-  //     print(msg.runtimeType);
-  //     print(msg.sender.toUpperCase());
+  //     //print(msg.address);
+  //     //print(msg.body);
+  //     //print(msg.sender);
+  //     //print(msg.runtimeType);
+  //     //print(msg.sender.toUpperCase());
   //   });
   // }
 

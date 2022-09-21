@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/classes/color_palette.dart';
@@ -5,6 +7,7 @@ import 'package:first_app/dashboard.dart';
 import 'package:flutter/material.dart';
 
 import 'components/navbar.dart';
+import 'drawer_component.dart';
 
 String dropdownvalue = 'State Bank of India';
 
@@ -44,6 +47,7 @@ class _ChooseBankState extends State<ChooseBank> {
         backgroundColor: ColorPalette.piggyViolet,
       ),
       bottomNavigationBar: const Navbar(),
+      drawer: const DrawerComponent(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -6,6 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
 import 'components/navbar.dart';
+import 'drawer_component.dart';
 
 class LocationRoute extends StatefulWidget {
   const LocationRoute({Key? key}) : super(key: key);
@@ -39,6 +40,7 @@ class LocationRouteState extends State<LocationRoute> {
         backgroundColor: ColorPalette.piggyViolet,
       ),
       bottomNavigationBar: const Navbar(),
+      drawer: const DrawerComponent(),
       body: RefreshIndicator(
         onRefresh: () async {
           setState(() {
@@ -137,7 +139,7 @@ class LocationRouteState extends State<LocationRoute> {
     // var result = await googlePlace.details
     //     .get("ChIJN1t_tDeuEmsRUsoyG83frY4", fields: "name");
 
-    // print("*******RESULT********${result?.result}");
+    // //print("*******RESULT********${result?.result}");
 
     return await placemarkFromCoordinates(
         coordinates.latitude, coordinates.longitude);

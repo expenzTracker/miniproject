@@ -3,10 +3,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/choose_bank.dart';
 import 'package:first_app/classes/color_palette.dart';
 import 'package:first_app/show_sms.dart';
+import 'package:first_app/uncategorized.dart';
 import 'dashboard.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:flutter/material.dart';
 import './goals/my_goals.dart';
+import 'addspend/add_spend.dart';
+import 'addspend/add_spend_route.dart';
+import 'category_wise.dart';
+import 'drawer_component.dart';
 
 class Home extends StatelessWidget {
   final uid;
@@ -23,14 +28,16 @@ class Home extends StatelessWidget {
       backgroundColor: ColorPalette.piggyBlack,
       appBar: AppBar(
           title: const Text('Home'), backgroundColor: ColorPalette.piggyViolet),
+      drawer: const DrawerComponent(),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: ColorPalette.piggyGreenDark),
+                    backgroundColor: ColorPalette.piggyGreenDark),
                 child: const Text('Choose Bank'),
                 onPressed: () {
                   Navigator.push(
@@ -42,7 +49,7 @@ class Home extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: ColorPalette.piggyGreenDark),
+                    backgroundColor: ColorPalette.piggyGreenDark),
                 child: const Text('Set goals'),
                 onPressed: () {
                   Navigator.push(
@@ -53,7 +60,7 @@ class Home extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: ColorPalette.piggyGreenDark),
+                    backgroundColor: ColorPalette.piggyGreenDark),
                 child: const Text('Dashboard'),
                 onPressed: () {
                   Navigator.push(
@@ -64,8 +71,20 @@ class Home extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: ColorPalette.piggyGreenDark),
-                child: const Text('Location Track route'),
+                    backgroundColor: ColorPalette.piggyGreenDark),
+                child: const Text('Uncategorized spends'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UncategorizedSpends()),
+                  );
+                },
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.piggyGreenDark),
+                child: const Text('Track Location'),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -76,7 +95,7 @@ class Home extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: ColorPalette.piggyGreenDark),
+                    backgroundColor: ColorPalette.piggyGreenDark),
                 child: const Text('My Expenses'),
                 onPressed: () {
                   Navigator.push(

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:first_app/classes/color_palette.dart';
+import 'package:first_app/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'home.dart';
@@ -195,12 +196,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const Home(),
+                                builder: (context) => const Dashboard(),
                               ),
                             );
                           }
                         } catch (e) {
-                          print(e);
+                          //print(e);
                         }
                       },
                       child: Container(

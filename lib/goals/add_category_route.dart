@@ -1,4 +1,4 @@
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 /// {@template hero_dialog_route}
@@ -7,10 +7,8 @@ import 'package:flutter/material.dart';
 /// Best used with a [Hero] animation.
 /// {@endtemplate}
 class AddCategoryRoute<T> extends PageRoute<T> {
-
   AddCategoryRoute({
     required WidgetBuilder builder,
-    
     bool fullscreenDialog = false,
   })  : _builder = builder,
         super(fullscreenDialog: fullscreenDialog);

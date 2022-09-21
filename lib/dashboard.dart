@@ -2,12 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/category_wise.dart';
 import 'package:first_app/components/navbar.dart';
+import 'package:first_app/uncategorized.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
 import 'classes/color_palette.dart';
+import 'drawer_component.dart';
 
 final db = FirebaseFirestore.instance;
 final user = FirebaseAuth.instance.currentUser;
@@ -30,6 +32,7 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    spentData = 0.0;
   }
 
   @override
@@ -40,6 +43,7 @@ class _DashboardState extends State<Dashboard> {
         title: const Text("Dashboard"),
         backgroundColor: ColorPalette.piggyViolet,
       ),
+      drawer: const DrawerComponent(),
       backgroundColor: Colors.black,
       bottomNavigationBar: const Navbar(),
       body: Column(
@@ -52,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
                     Container(
                         width: 300,
                         height: 200,
-                        padding: new EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Card(
                           color: ColorPalette.piggyGrey,
                           shape: RoundedRectangleBorder(
@@ -95,7 +99,9 @@ class _DashboardState extends State<Dashboard> {
                   ],
                 );
               }),
-          Expanded(child: SizedBox(height: 300, child: CategoryWise())),
+          const Expanded(child: SizedBox(height: 300, child: CategoryWise())),
+          const SizedBox(
+              height: 200, width: 365, child: UncategorizedSpendsBody()),
           Padding(
             padding: const EdgeInsets.all(32.0),
             child: GestureDetector(
@@ -150,6 +156,7 @@ getSpentAmount() async {
       spentDataDoc = doc.docs;
       spentDataDoc.forEach((value) =>
           {spentData += (double.parse((value.data() as Map)['amount']))});
+      return spentData;
     },
     onError: (e) => print("Error getting document: $e"),
   );
