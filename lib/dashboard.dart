@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/category_wise.dart';
+import 'package:first_app/components/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
-
 import 'classes/color_palette.dart';
 
 final db = FirebaseFirestore.instance;
@@ -36,8 +36,12 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     spentData = 0.0;
     return Scaffold(
-      appBar: AppBar(title: const Text("Dashboard"),backgroundColor: ColorPalette.piggyViolet,),
+      appBar: AppBar(
+        title: const Text("Dashboard"),
+        backgroundColor: ColorPalette.piggyViolet,
+      ),
       backgroundColor: Colors.black,
+      bottomNavigationBar: const Navbar(),
       body: Column(
         children: [
           FutureBuilder(
@@ -93,29 +97,29 @@ class _DashboardState extends State<Dashboard> {
               }),
           Expanded(child: SizedBox(height: 300, child: CategoryWise())),
           Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      AddSpendRoute(builder: (context) => const AddSpend()),
-                    );
-                  },
-                  child: Hero(
-                    tag: _heroAddSpend,
-                    child: Material(
-                      color: ColorPalette.piggyPink,
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32)),
-                      child: const Icon(
-                        Icons.add_rounded,
-                        size: 56,
-                      ),
-                    ),
+            padding: const EdgeInsets.all(32.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  AddSpendRoute(builder: (context) => const AddSpend()),
+                );
+              },
+              child: Hero(
+                tag: _heroAddSpend,
+                child: Material(
+                  color: ColorPalette.piggyPink,
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32)),
+                  child: const Icon(
+                    Icons.add_rounded,
+                    size: 56,
                   ),
                 ),
-              )
+              ),
+            ),
+          )
         ],
       ),
     );
@@ -123,7 +127,7 @@ class _DashboardState extends State<Dashboard> {
 }
 
 getAmount() async {
-  await db.collection("goals").doc(uid).get().then( 
+  await db.collection("goals").doc(uid).get().then(
     (DocumentSnapshot doc) {
       budgetData = doc.data() as Map<String, dynamic>;
     },

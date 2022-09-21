@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/choose_bank.dart';
 import 'package:first_app/home.dart';
 import 'package:first_app/register_screen.dart';
 import 'package:flutter/material.dart';
@@ -149,10 +150,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (result != null) {
                             final User user = result.user!;
                             final uid = user.uid;
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => Home(uid: uid)),
+                            // );
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Home(uid: uid)),
+                                  builder: (context) => ChooseBank(uid: uid)),
                             );
                           }
                         } catch (e) {

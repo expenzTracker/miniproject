@@ -1,23 +1,26 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/classes/color_palette.dart';
+import 'package:first_app/dashboard.dart';
 import 'package:flutter/material.dart';
 
-String dropdownvalue = 'State Bank of India';  
- 
-  // List of items in our dropdown menu
-  var items = [   
-    'State Bank of India',
-    'City Union Bank',
-    'HDFC Bank',
-    'Axis Bank',
-    'ICICI Bank',
-    'Canara Bank',
-    'Bank of Baroda',
-    'South Indian Bank',
-    'UCO Bank',
-    'Dhanalaxmi Bank'
-  ];
+import 'components/navbar.dart';
+
+String dropdownvalue = 'State Bank of India';
+
+// List of items in our dropdown menu
+var items = [
+  'State Bank of India',
+  'City Union Bank',
+  'HDFC Bank',
+  'Axis Bank',
+  'ICICI Bank',
+  'Canara Bank',
+  'Bank of Baroda',
+  'South Indian Bank',
+  'UCO Bank',
+  'Dhanalaxmi Bank'
+];
 
 class ChooseBank extends StatefulWidget {
   final uid;
@@ -35,17 +38,19 @@ class _ChooseBankState extends State<ChooseBank> {
     final uid = user?.uid;
     String? data;
     return Scaffold(
+      // bottomNavigationBar: const Navbar(),
       appBar: AppBar(
         title: const Text('Choose Bank'),
         backgroundColor: ColorPalette.piggyViolet,
       ),
+      bottomNavigationBar: const Navbar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             DropdownButton(
               value: dropdownvalue,
-              icon: const Icon(Icons.keyboard_arrow_down),  
+              icon: const Icon(Icons.keyboard_arrow_down),
               items: items.map((String items) {
                 return DropdownMenuItem(
                   value: items,
@@ -56,23 +61,21 @@ class _ChooseBankState extends State<ChooseBank> {
                 setState(() {
                   dropdownvalue = newValue!;
                   data = dropdownvalue;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard()),
+                  );
                 });
                 final userData = <String, dynamic>{
                   "bank": data,
                 };
                 // Add a new document with a generated ID
-                db
-                    .collection("banks")
-                    .doc(uid)
-                    .set(userData);
-                    
+                db.collection("banks").doc(uid).set(userData);
               },
-              )
-            
+            )
           ],
         ),
       ),
     );
-    
   }
 }

@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app/classes/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:sms_advanced/sms_advanced.dart';
+
+import 'components/navbar.dart';
 
 final db = FirebaseFirestore.instance;
 final user = FirebaseAuth.instance.currentUser;
@@ -44,11 +47,11 @@ class MyInboxState extends State {
     List allMessages = [];
 
     return Scaffold(
-        // backgroundColor: Colors.black,
         appBar: AppBar(
           title: const Text("Monthly Expenditure"),
-          backgroundColor: Colors.pink,
+          backgroundColor: ColorPalette.piggyViolet,
         ),
+        bottomNavigationBar: const Navbar(),
         body: RefreshIndicator(
           onRefresh: () async {
             setState(() {
@@ -81,7 +84,8 @@ class MyInboxState extends State {
           ),
         ));
   }
-      DocumentSnapshot? tempTrans;
+
+  DocumentSnapshot? tempTrans;
   fetchSMS(
     List messages,
     Map months,
@@ -92,7 +96,6 @@ class MyInboxState extends State {
     List strAmounts = List.filled(12, null, growable: false);
     String? data;
     var userAmt;
-
 
     allMessages = await query.getAllSms;
     for (int i = 0; i < allMessages.length; i++) {
@@ -126,14 +129,11 @@ class MyInboxState extends State {
           }
         }
       }
-      
     }
     months.forEach((key, value) {
       messages.add(amounts[int.parse(key) - 1]);
     });
   }
-
-
 
   // readSMS() async {
   //   receiver.onSmsReceived.listen((SmsMessage msg) {

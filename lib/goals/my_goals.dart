@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/classes/color_palette.dart';
+import 'package:first_app/components/navbar.dart';
 import 'package:flutter/material.dart';
 // import 'add_category_route.dart';
 import '../classes/category.dart';
@@ -70,10 +71,10 @@ class _MyGoalsState extends State<MyGoals> {
       'amount': category.amount,
     };
 
-var cat = {
-        'name' : category.name,
-        'amount':category.amount,
-      };
+    cat = {
+      'name': category.name,
+      'amount': category.amount,
+    };
 
     db.collection('goals').doc(uid).collection('categories').add(cat);
 
@@ -143,6 +144,7 @@ var cat = {
         title: const Text('My Goals'),
         backgroundColor: ColorPalette.piggyViolet,
       ),
+      bottomNavigationBar: const Navbar(),
       body: FutureBuilder(
           future: getcats(),
           builder: (context, snapshot) {
@@ -226,72 +228,70 @@ var cat = {
                                   ),
                                 ),
                               ]),
+                        )),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: ColorPalette.piggyGreenDark),
+                      child: const Text('Set Goal'),
+                      onPressed: () {
+                        db.collection('goals').doc(uid).set(
+                          {
+                            'monthly_goal': amount,
+                          },
+                        );
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                        width: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.grey,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 20),
+                                  child: Text(
+                                    'Categories',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                                CategoryList(
+                                    categories, _editCategory, _deleteCategory),
+                                Container(
+                                  width: 100,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: TextButton(
+                                    onPressed: () {
+                                      _renderShowModal();
+                                    },
+                                    child: const Text(
+                                      'Add category',
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ),
+                                ),
+                              ]),
                         ))
                   ],
                 ),
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: ColorPalette.piggyGreenDark
-                ),
-                child: const Text('Set Goal'),
-                onPressed: () {
-                  db.collection('goals').doc(uid).set(
-                    {
-                      'monthly_goal': amount,
-                    },
-                  );
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 0, vertical: 20),
-                            child: Text(
-                              'Categories',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                          ),
-                          CategoryList(
-                              categories, _editCategory, _deleteCategory),
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: const BoxDecoration(
-                              color: Colors.black,
-                              shape: BoxShape.circle,
-                            ),
-                            child: TextButton(
-                              onPressed: () {
-                                _renderShowModal();
-                              },
-                              child: const Text(
-                                'Add category',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ),
-                          ),
-                        ]),
-                  ))
-            ],
-          ),
-        ),
-      ),
+            );
+          }),
     );
   }
 }
