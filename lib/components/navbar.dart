@@ -34,37 +34,43 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // Scaffold(
-        //   body: Center(
-        //     child: _widgetOptions.elementAt(_selectedIndex),
-        //   ),
-        //   bottomNavigationBar:
-        BottomNavigationBar(
+    return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.dashboard_rounded),
+          icon: Icon(
+            Icons.dashboard_rounded,
+            color: ColorPalette.piggyCream,
+          ),
           label: 'Dashboard',
-          backgroundColor: ColorPalette.piggyGreenDark,
+          backgroundColor: ColorPalette.piggyPinkDark,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.attach_money_rounded),
+          icon: Icon(
+            Icons.attach_money_rounded,
+            color: ColorPalette.piggyCream,
+          ),
           label: 'My expenses',
-          backgroundColor: ColorPalette.piggyGreenDark,
+          backgroundColor: ColorPalette.piggyPinkDark,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.location_on_rounded),
+          icon: Icon(
+            Icons.location_on_rounded,
+            color: ColorPalette.piggyCream,
+          ),
           label: 'Location tracking',
-          backgroundColor: ColorPalette.piggyGreenDark,
+          backgroundColor: ColorPalette.piggyPinkDark,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings_rounded),
+          icon: Icon(
+            Icons.settings_rounded,
+            color: ColorPalette.piggyCream,
+          ),
           label: 'Set goals',
-          backgroundColor: ColorPalette.piggyGreenDark,
+          backgroundColor: ColorPalette.piggyPinkDark,
         ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: ColorPalette.piggyBlack,
+      selectedItemColor: ColorPalette.piggyCream,
       onTap: _onItemTapped,
     );
     // );

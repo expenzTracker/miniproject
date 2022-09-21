@@ -35,9 +35,13 @@ class LocationRouteState extends State<LocationRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("Get Current Location"),
-        backgroundColor: ColorPalette.piggyViolet,
+        title: const Text(
+          "Get Current Location",
+          style: TextStyle(color: ColorPalette.piggyPinkDark),
+        ),
+        backgroundColor: Colors.black,
       ),
       bottomNavigationBar: const Navbar(),
       drawer: const DrawerComponent(),
@@ -67,9 +71,14 @@ class LocationRouteState extends State<LocationRoute> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("ADDRESS:\n $locality"),
-                        Text("\nCOORDINATES:\n $latitude , $longitude"),
-                        Text("\nPLACE:\n $place")
+                        Text(
+                          "ADDRESS:\n $locality",
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        Text("\nCOORDINATES:\n $latitude , $longitude",
+                            style: const TextStyle(color: Colors.white)),
+                        Text("\nPLACE:\n $place",
+                            style: const TextStyle(color: Colors.white))
                       ],
                     );
                   } else if (snapshot.hasError) {

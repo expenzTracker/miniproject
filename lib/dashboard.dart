@@ -4,8 +4,6 @@ import 'package:first_app/category_wise.dart';
 import 'package:first_app/components/navbar.dart';
 import 'package:first_app/uncategorized.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
 import 'classes/color_palette.dart';
@@ -30,7 +28,6 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     // fetchSms
     spentData = 0.0;
@@ -41,8 +38,11 @@ class _DashboardState extends State<Dashboard> {
     spentData = 0.0;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dashboard"),
-        backgroundColor: ColorPalette.piggyViolet,
+        title: const Text(
+          "Dashboard",
+          style: TextStyle(color: ColorPalette.piggyPinkDark),
+        ),
+        backgroundColor: Colors.black,
       ),
       drawer: const DrawerComponent(),
       backgroundColor: Colors.black,
@@ -55,16 +55,33 @@ class _DashboardState extends State<Dashboard> {
                 return Column(
                   children: [
                     Container(
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(31.0)),
+                          gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                ColorPalette.piggyPinkDark,
+                                Colors.orange
+                              ])),
                       width: 300,
                       height: 200,
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(3.0),
                       child: Card(
-                        color: ColorPalette.piggyGrey,
+                        color: Colors.black,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            const Text(
+                              "This month",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 17),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               textBaseline: TextBaseline.alphabetic,
@@ -72,10 +89,12 @@ class _DashboardState extends State<Dashboard> {
                               children: [
                                 Text("Rs.${(budget - spentData).toString()}",
                                     style: const TextStyle(
-                                        fontSize: 17,
+                                        fontSize: 24,
+                                        color: Colors.white,
                                         fontWeight: FontWeight.bold)),
                                 const Text("left",
-                                    style: TextStyle(fontSize: 10))
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.white))
                               ],
                             ),
                             Row(
@@ -85,10 +104,10 @@ class _DashboardState extends State<Dashboard> {
                               children: [
                                 Text("Rs.${spentData.toString()}",
                                     style: const TextStyle(
-                                        fontSize: 23,
-                                        fontWeight: FontWeight.bold)),
+                                        fontSize: 18, color: Colors.white)),
                                 const Text("spent",
-                                    style: TextStyle(fontSize: 14))
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.white))
                               ],
                             ),
                           ],
@@ -113,13 +132,13 @@ class _DashboardState extends State<Dashboard> {
               child: Hero(
                 tag: _heroAddSpend,
                 child: Material(
-                  color: ColorPalette.piggyPink,
+                  color: ColorPalette.piggyCream,
                   elevation: 2,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32)),
                   child: const Icon(
                     Icons.add_rounded,
-                    size: 56,
+                    size: 30,
                   ),
                 ),
               ),

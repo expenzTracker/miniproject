@@ -34,23 +34,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.piggyBlack,
+      backgroundColor: Colors.black,
       body: Center(
-        child: Stack(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // new Image(
-            //   image: new AssetImage("images/splash.jpg"),
-            //   fit: BoxFit.cover,
-            //   width: MediaQuery.of(context).size.width,
-            //   height: MediaQuery.of(context).size.height,
-            // ),
-            BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 7.0,
-                sigmaY: 7.0,
-              ),
-              child: const Text("."),
+            const Image(
+              image: AssetImage("images/mypiggylogo.png"),
+              // fit: BoxFit.cover,
+              height: 100,
             ),
+            // BackdropFilter(
+            //   filter: ImageFilter.blur(
+            //     sigmaX: 7.0,
+            //     sigmaY: 7.0,
+            //   ),
+            // child: const Text("."),
+            // ),
             SingleChildScrollView(
               child: Align(
                 alignment: const Alignment(0, 0),
@@ -67,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: Container(
                         margin: const EdgeInsets.only(top: 10),
                         decoration: BoxDecoration(
-                          color: ColorPalette.piggyViolet,
+                          color: ColorPalette.piggyBlueDark,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         width: 270,
@@ -180,7 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               });
                             },
                             activeColor: Colors.white,
-                            checkColor: Colors.blue,
+                            checkColor: ColorPalette.piggyBlueDark,
                           ),
                         )
                       ],
@@ -208,7 +208,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         width: 270,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: ColorPalette.piggyPink,
+                          color: ColorPalette.piggyPinkDark,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Align(

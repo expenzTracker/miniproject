@@ -62,9 +62,13 @@ class MyInboxState extends State {
     List allMessages = [];
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("Monthly Expenditure"),
-        backgroundColor: ColorPalette.piggyViolet,
+        title: const Text(
+          "Monthly Expenditure",
+          style: TextStyle(color: ColorPalette.piggyPinkDark),
+        ),
+        backgroundColor: Colors.black,
       ),
       bottomNavigationBar: const Navbar(),
       drawer: const DrawerComponent(),
@@ -82,16 +86,28 @@ class MyInboxState extends State {
             // );
             return ListView.separated(
               separatorBuilder: (context, index) => const Divider(
-                color: Colors.black,
+                color: Colors.orange,
               ),
               itemCount: messages.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text(monthNames[index % messages.length]),
-                    subtitle:
-                        Text(messages[index % messages.length].toString()),
+                    leading: const Icon(
+                      Icons.attach_money_rounded,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      monthNames[index % messages.length],
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                          color: Colors.white),
+                    ),
+                    subtitle: Text(
+                      messages[index % messages.length].toString(),
+                      style: const TextStyle(fontSize: 15, color: Colors.white),
+                    ),
                   ),
                 );
               },

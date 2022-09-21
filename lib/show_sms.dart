@@ -40,7 +40,7 @@ class ShowInboxState extends State {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text("Monthly Expenditure"),
-        backgroundColor: ColorPalette.piggyViolet,
+        backgroundColor: ColorPalette.piggyBlueDark,
       ),
       bottomNavigationBar: const Navbar(),
       body: FutureBuilder(
@@ -48,7 +48,7 @@ class ShowInboxState extends State {
         builder: (context, snapshot) {
           return ListView.separated(
             separatorBuilder: (context, index) => const Divider(
-              color: Colors.white,
+              color: ColorPalette.piggyCream,
             ),
             itemCount: messages.length,
             itemBuilder: (context, index) {
@@ -57,11 +57,11 @@ class ShowInboxState extends State {
                 child: ListTile(
                   title: Text(months[index % months.length],
                       style: const TextStyle(
-                          color: Colors.white,
+                          color: ColorPalette.piggyCream,
                           fontSize: 18,
                           fontWeight: FontWeight.bold)),
                   subtitle: Text(messages[index % messages.length],
-                      style: const TextStyle(color: Colors.white)),
+                      style: const TextStyle(color: ColorPalette.piggyCream)),
                 ),
               );
             },
