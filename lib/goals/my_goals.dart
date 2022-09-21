@@ -255,7 +255,7 @@ class _MyGoalsState extends State<MyGoals> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
-                                      color: ColorPalette.piggyPinkDark),
+                                      color: Colors.orange),
                                 ),
                               ),
                               CategoryList(
