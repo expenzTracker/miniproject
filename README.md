@@ -1,4 +1,4 @@
-# first_app
+# MyPiggy - automated expense tracker
 
 A new Flutter project.
 
