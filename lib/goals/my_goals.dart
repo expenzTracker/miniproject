@@ -24,10 +24,24 @@ class _MyGoalsState extends State<MyGoals> {
   String amount = '';
   String name = '';
   int maxId = 0;
+  var budgetData;
+  double budget = 0.0;
   Category? category;
   final nameController = TextEditingController();
   final amountController = TextEditingController();
   List<Category> categories = [];
+
+  getAmount() async {
+    await db.collection("goals").doc(uid).get().then(
+      (DocumentSnapshot doc) {
+        budgetData = doc.data() as Map<String, dynamic>;
+      },
+      onError: (e) => print("Error getting document: $e"),
+    );
+    budget = double.parse(budgetData?['monthly_goal']);
+    return budget;
+  }
+
   getcats() async {
     categories = [];
     await db
@@ -71,7 +85,12 @@ class _MyGoalsState extends State<MyGoals> {
       'amount': category.amount,
     };
 
-    db.collection('goals').doc(uid).collection('categories').add(cat);
+    db
+        .collection('goals')
+        .doc(uid)
+        .collection('categories')
+        .doc(category.name)
+        .set(cat);
 
     setState(() {
       categories.add(category);
@@ -101,6 +120,12 @@ class _MyGoalsState extends State<MyGoals> {
   }
 
   void _deleteCategory(Category categoryitem) {
+    db
+        .collection("goals")
+        .doc(uid)
+        .collection('categories')
+        .doc(categoryitem.name)
+        .delete();
     setState(() {
       categories = List.from(categories)
         ..removeAt(categories.indexOf(categoryitem));
@@ -152,12 +177,32 @@ class _MyGoalsState extends State<MyGoals> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  const SizedBox(
+                    height: 34,
+                  ),
+                  FutureBuilder(
+                      future: getAmount(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          budget = snapshot.data as double;
+                        }
+                        return Center(
+                          child: Text(
+                            "$budget",
+                            style: const TextStyle(
+                              fontSize: 60,
+                              color: ColorPalette.piggyPink,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        );
+                      }),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: TextFormField(
                       onChanged: (value) {
                         amount = value;
-                        print(amount);
+                        //print(amount);
                       },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -169,14 +214,19 @@ class _MyGoalsState extends State<MyGoals> {
                     ),
                   ),
                   ElevatedButton(
-                    child: const Text('Set Goal'),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          ColorPalette.piggyGreenDark),
+                    ),
                     onPressed: () {
+                      setState(() {});
                       db.collection('goals').doc(uid).set(
                         {
                           'monthly_goal': amount,
                         },
                       );
                     },
+                    child: const Text('Set Goal'),
                   ),
                   const SizedBox(
                     height: 20,

@@ -201,7 +201,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             );
                           }
                         } catch (e) {
-                          print(e);
+                          //print(e);
                         }
                       },
                       child: Container(

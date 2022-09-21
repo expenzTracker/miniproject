@@ -5,26 +5,23 @@ import 'package:flutter/material.dart';
 
 /// Tag-value used for the add todo popup button.
 const String _heroAddSpend = 'add-spend';
-    final db = FirebaseFirestore.instance;
-    final user = FirebaseAuth.instance.currentUser;
-    final uid = user?.uid;
+final db = FirebaseFirestore.instance;
+final user = FirebaseAuth.instance.currentUser;
+final uid = user?.uid;
 
+String? category_of_spend = items[0];
 
+final List<String> items = <String>[
+  "-- Select category --",
+  "Food",
+  "Travel",
+];
 
-    String? category_of_spend=items[0];
-
- final List<String> items = <String>[
-    "-- Select category --",
-    "Food",
-    "Travel",
-  ];
-
-   var spendData = <String, dynamic>{
-      "amount": "0",
-      "category": "-- Select category --",
-      "date": DateTime.now().day.toString(),
-
-    };
+var spendData = <String, dynamic>{
+  "amount": "0",
+  "category": "-- Select category --",
+  "date": DateTime.now().day.toString(),
+};
 
 /// [HeroDialogRoute] to achieve the popup effect.
 ///
@@ -39,9 +36,8 @@ class AddSpend extends StatefulWidget {
 }
 
 class _AddSpendState extends State<AddSpend> {
-
-   String amount = '';
-    // final amountController = TextEditingController();
+  String amount = '';
+  // final amountController = TextEditingController();
 
 //  @override
 //   void initState() {
@@ -58,11 +54,6 @@ class _AddSpendState extends State<AddSpend> {
 
   @override
   Widget build(BuildContext context) {
-
-
-   
-
-    
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32.0),
@@ -80,9 +71,14 @@ class _AddSpendState extends State<AddSpend> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                        child: Text('New spend',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                      child: Text(
+                        'New spend',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
+                    ),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
@@ -91,13 +87,13 @@ class _AddSpendState extends State<AddSpend> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextFormField(
-                          onChanged: (value) {
-                            amount=value;
-                          },
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            labelText: 'Enter spend amount',
-                          )                      ),
+                            onChanged: (value) {
+                              amount = value;
+                            },
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              labelText: 'Enter spend amount',
+                            )),
                       ),
                     ),
                     const Divider(
@@ -114,7 +110,7 @@ class _AddSpendState extends State<AddSpend> {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: DropdownButton(
                           value: category_of_spend,
-                          icon: Icon(Icons.keyboard_arrow_down),  
+                          icon: Icon(Icons.keyboard_arrow_down),
                           items: items.map((String item) {
                             return DropdownMenuItem(
                               value: item,
@@ -126,10 +122,7 @@ class _AddSpendState extends State<AddSpend> {
                               category_of_spend = newValue!;
                               spendData["spendAount"] = amount;
                               spendData["category"] = category_of_spend;
-                              
                             });
-                            
-                      
                           },
                         ),
                       ),
@@ -140,9 +133,13 @@ class _AddSpendState extends State<AddSpend> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        print(amount);
-                        print(category_of_spend);
-                        db.collection("users").doc(uid).collection("transactions").add(spendData);
+                        //print(amount);
+                        //print(category_of_spend);
+                        db
+                            .collection("users")
+                            .doc(uid)
+                            .collection("transactions")
+                            .add(spendData);
                       },
                       child: const Text('Add'),
                     ),

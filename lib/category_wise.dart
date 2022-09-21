@@ -57,7 +57,7 @@ class _CategoryWiseState extends State<CategoryWise> {
     return FutureBuilder(
       future: getCategorywiseExpenditure(),
       builder: ((context, snapshot) {
-        print("***SNAPSHOT**\n${snapshot.data}");
+        //print("***SNAPSHOT**\n${snapshot.data}");
         if (snapshot.hasData) {
           categorywiseGoals = (snapshot.data as List)[0];
           categorywiseExpenditure = (snapshot.data as List)[1];
@@ -67,7 +67,7 @@ class _CategoryWiseState extends State<CategoryWise> {
             shrinkWrap: true,
             itemCount: categorywiseGoals.length,
             itemBuilder: (context, index) {
-              print("HALO");
+              //print("HALO");
               String currentCategory =
                   (categorywiseGoals[index].data() as Map)['name'];
               double currentCategoryExpenditure = 0.0;
@@ -83,17 +83,16 @@ class _CategoryWiseState extends State<CategoryWise> {
               for (var element in categorywiseExpenditure) {
                 if ((element.data() as Map).containsKey('category') &&
                     (element.data() as Map)['category'] == currentCategory) {
-                  print("\n***Amount GOAL***\n${element.data() as Map}");
+                  //print("\n***Amount GOAL***\n${element.data() as Map}");
                   currentCategoryExpenditure +=
                       double.parse((element.data() as Map)['amount']);
                 }
               }
-              print("\n***CAT GOAL***\n${currentCategoryGoal.toString()}");
-              print(
-                  "\n***CAT EXP***\n${currentCategoryExpenditure.toString()}");
+              //print("\n***CAT GOAL***\n${currentCategoryGoal.toString()}");
+              //print("\n***CAT EXP***\n${currentCategoryExpenditure.toString()}");
 
-              print("***** ${categorywiseExpenditure[0].data()}");
-              print("##### $categorywiseGoals");
+              //print("***** ${categorywiseExpenditure[0].data()}");
+              //print("##### $categorywiseGoals");
               return Padding(
                 padding: const EdgeInsets.fromLTRB(27, 8, 27, 8),
                 child: Card(

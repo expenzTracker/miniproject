@@ -137,7 +137,7 @@ class LocationRouteState extends State<LocationRoute> {
     // var result = await googlePlace.details
     //     .get("ChIJN1t_tDeuEmsRUsoyG83frY4", fields: "name");
 
-    // print("*******RESULT********${result?.result}");
+    // //print("*******RESULT********${result?.result}");
 
     return await placemarkFromCoordinates(
         coordinates.latitude, coordinates.longitude);
