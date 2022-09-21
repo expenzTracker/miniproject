@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
+import 'drawer_component.dart';
+
 class LocationRoute extends StatefulWidget {
   const LocationRoute({Key? key}) : super(key: key);
 
@@ -36,6 +38,7 @@ class LocationRouteState extends State<LocationRoute> {
         title: const Text("Get Current Location"),
         backgroundColor: ColorPalette.piggyViolet,
       ),
+      drawer: const DrawerComponent(),
       body: RefreshIndicator(
         onRefresh: () async {
           setState(() {
@@ -56,7 +59,8 @@ class LocationRouteState extends State<LocationRoute> {
                     String locality = position[2].toString().substring(
                         position[0].toString().indexOf('Name:') + 5,
                         position[0].toString().indexOf('Country'));
-                    String place = 'Government Engineering College Thrissur Kerala';
+                    String place =
+                        'Government Engineering College Thrissur Kerala';
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,9 +113,8 @@ class LocationRouteState extends State<LocationRoute> {
     Position coordinates = await getLocation();
     latitude = coordinates.latitude;
     longitude = coordinates.longitude;
-    if(latitude.toString().contains('10.55') && longitude.toString().contains('76.22')){
-      
-    }
+    if (latitude.toString().contains('10.55') &&
+        longitude.toString().contains('76.22')) {}
 
     LocationSettings locationSettings = AndroidSettings(
       accuracy: LocationAccuracy.high,

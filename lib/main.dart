@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:first_app/splash_screen.dart';
 import 'package:flutter/material.dart';

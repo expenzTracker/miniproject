@@ -8,6 +8,7 @@ import 'addspend/add_spend.dart';
 import 'addspend/add_spend_route.dart';
 
 import 'classes/color_palette.dart';
+import 'drawer_component.dart';
 
 final db = FirebaseFirestore.instance;
 final user = FirebaseAuth.instance.currentUser;
@@ -30,13 +31,18 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    spentData = 0.0;
   }
 
   @override
   Widget build(BuildContext context) {
     spentData = 0.0;
     return Scaffold(
-      appBar: AppBar(title: const Text("Dashboard"),backgroundColor: ColorPalette.piggyViolet,),
+      appBar: AppBar(
+        title: const Text("Dashboard"),
+        backgroundColor: ColorPalette.piggyViolet,
+      ),
+      drawer: const DrawerComponent(),
       backgroundColor: Colors.black,
       body: Column(
         children: [
@@ -93,29 +99,29 @@ class _DashboardState extends State<Dashboard> {
               }),
           Expanded(child: SizedBox(height: 300, child: CategoryWise())),
           Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      AddSpendRoute(builder: (context) => const AddSpend()),
-                    );
-                  },
-                  child: Hero(
-                    tag: _heroAddSpend,
-                    child: Material(
-                      color: ColorPalette.piggyPink,
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32)),
-                      child: const Icon(
-                        Icons.add_rounded,
-                        size: 56,
-                      ),
-                    ),
+            padding: const EdgeInsets.all(32.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  AddSpendRoute(builder: (context) => const AddSpend()),
+                );
+              },
+              child: Hero(
+                tag: _heroAddSpend,
+                child: Material(
+                  color: ColorPalette.piggyPink,
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32)),
+                  child: const Icon(
+                    Icons.add_rounded,
+                    size: 56,
                   ),
                 ),
-              )
+              ),
+            ),
+          )
         ],
       ),
     );
@@ -123,7 +129,7 @@ class _DashboardState extends State<Dashboard> {
 }
 
 getAmount() async {
-  await db.collection("goals").doc(uid).get().then( 
+  await db.collection("goals").doc(uid).get().then(
     (DocumentSnapshot doc) {
       budgetData = doc.data() as Map<String, dynamic>;
     },
@@ -146,6 +152,7 @@ getSpentAmount() async {
       spentDataDoc = doc.docs;
       spentDataDoc.forEach((value) =>
           {spentData += (double.parse((value.data() as Map)['amount']))});
+      return spentData;
     },
     onError: (e) => print("Error getting document: $e"),
   );
