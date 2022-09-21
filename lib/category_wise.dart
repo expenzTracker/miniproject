@@ -20,7 +20,10 @@ class CategoryWise extends StatefulWidget {
 class _CategoryWiseState extends State<CategoryWise> {
   List categorywiseGoals = [];
   List categorywiseExpenditure = [];
-  List categorywiseDetails = [[], []];
+  List categorywiseDetails = [
+    [],
+    []
+  ]; //[categorywiseGoals][ategorywiseExpenditure]
 
   getCategorywiseGoals() async {
     await db
@@ -32,18 +35,18 @@ class _CategoryWiseState extends State<CategoryWise> {
   }
 
   getCategorywiseExpenditure() async {
-    await db
-        .collection("goals")
-        .doc(uid)
-        .collection("categories")
-        .get()
-        .then((value) => {categorywiseDetails[0] = (value.docs)});
+    await db.collection("goals").doc(uid).collection("categories").get().then(
+        (value) => {
+              categorywiseDetails[0] = (value.docs)
+            }); //athayath categorywisegoals
     await db
         .collection("transactions")
         .doc(uid)
         .collection("details")
         .get()
-        .then((value) => {categorywiseDetails[1] = (value.docs)});
+        .then((value) => {
+              categorywiseDetails[1] = (value.docs)
+            }); //athayath categorywiseexpenditure
     return (categorywiseDetails);
   }
 
@@ -57,7 +60,6 @@ class _CategoryWiseState extends State<CategoryWise> {
     return FutureBuilder(
       future: getCategorywiseExpenditure(),
       builder: ((context, snapshot) {
-        //print("***SNAPSHOT**\n${snapshot.data}");
         if (snapshot.hasData) {
           categorywiseGoals = (snapshot.data as List)[0];
           categorywiseExpenditure = (snapshot.data as List)[1];
@@ -67,13 +69,13 @@ class _CategoryWiseState extends State<CategoryWise> {
             shrinkWrap: true,
             itemCount: categorywiseGoals.length,
             itemBuilder: (context, index) {
-              //print("HALO");
               String currentCategory =
                   (categorywiseGoals[index].data() as Map)['name'];
               double currentCategoryExpenditure = 0.0;
               double currentCategoryGoal = 0.0;
 
               for (var element in categorywiseGoals) {
+                //searching
                 if ((element.data() as Map)['name'] == currentCategory) {
                   currentCategoryGoal =
                       double.parse((element.data() as Map)['amount']);
@@ -81,6 +83,7 @@ class _CategoryWiseState extends State<CategoryWise> {
               }
 
               for (var element in categorywiseExpenditure) {
+                //searching
                 if ((element.data() as Map).containsKey('category') &&
                     (element.data() as Map)['category'] == currentCategory) {
                   //print("\n***Amount GOAL***\n${element.data() as Map}");
@@ -88,11 +91,7 @@ class _CategoryWiseState extends State<CategoryWise> {
                       double.parse((element.data() as Map)['amount']);
                 }
               }
-              //print("\n***CAT GOAL***\n${currentCategoryGoal.toString()}");
-              //print("\n***CAT EXP***\n${currentCategoryExpenditure.toString()}");
 
-              //print("***** ${categorywiseExpenditure[0].data()}");
-              //print("##### $categorywiseGoals");
               return Padding(
                 padding: const EdgeInsets.fromLTRB(27, 8, 27, 8),
                 child: Card(

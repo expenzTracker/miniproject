@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:first_app/addspend/add_category.dart';
 import 'package:flutter/material.dart';
+import 'addspend/add_spend_route.dart';
 import 'classes/color_palette.dart';
 import 'dashboard.dart';
 import 'drawer_component.dart';
@@ -28,7 +30,6 @@ getSpentDetails() async {
   },
       // )+=(double.parse((value.data() as Map)['amount']))
       onError: (e) => print("Error getting document: $e"));
-
   return spentDataDoc;
 }
 
@@ -47,33 +48,44 @@ class _UncategorizedSpendsBodyState extends State<UncategorizedSpendsBody> {
             child: FutureBuilder(
                 future: getSpentDetails(),
                 builder: (context, snapshot) {
-                  //print('#############################');
-                  //print(transactionlist);
-
+                  // transactionlist.sort((a, b) {
+                  //   return a['date'].compareTo(b['date']);
+                  // });
                   return ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: transactionlist.length,
                     padding: const EdgeInsets.only(bottom: 60),
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
-                      return Card(
-                          child: ListTile(
-                        title: Text(transactionlist[index]['amount'].toString(),
-                            style: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold)),
-                        subtitle: Row(
-                          children: [
-                            Text(
-                              transactionlist[index]['time']
-                                  .toString()
-                                  .split('.')[0],
-                            ),
-                            const SizedBox(width: 10),
-                            Text(transactionlist[index]['date'].toString()),
-                          ],
-                        ),
-                        trailing: const Icon(Icons.turned_in_not),
-                      ));
+                      index = transactionlist.length - 1 - index;
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            AddSpendRoute(
+                                builder: (context) => const AddCategory()),
+                          );
+                        },
+                        child: Card(
+                            child: ListTile(
+                          title: Text(
+                              transactionlist[index]['amount'].toString(),
+                              style: const TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.bold)),
+                          subtitle: Row(
+                            children: [
+                              Text(
+                                transactionlist[index]['time']
+                                    .toString()
+                                    .split('.')[0],
+                              ),
+                              const SizedBox(width: 10),
+                              Text(transactionlist[index]['date'].toString()),
+                            ],
+                          ),
+                          trailing: const Icon(Icons.turned_in_not),
+                        )),
+                      );
                     },
                   );
                 })));
