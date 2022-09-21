@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app/addspend/add_category.dart';
 import 'package:flutter/material.dart';
 import 'addspend/add_spend_route.dart';
@@ -8,6 +9,8 @@ import 'drawer_component.dart';
 
 final db = FirebaseFirestore.instance;
 final transactionlist = [];
+final user = FirebaseAuth.instance.currentUser;
+final uid = user?.uid;
 
 getSpentDetails() async {
   getAmount();
@@ -48,9 +51,6 @@ class _UncategorizedSpendsBodyState extends State<UncategorizedSpendsBody> {
             child: FutureBuilder(
                 future: getSpentDetails(),
                 builder: (context, snapshot) {
-                  // transactionlist.sort((a, b) {
-                  //   return a['date'].compareTo(b['date']);
-                  // });
                   return ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: transactionlist.length,
@@ -60,10 +60,12 @@ class _UncategorizedSpendsBodyState extends State<UncategorizedSpendsBody> {
                       index = transactionlist.length - 1 - index;
                       return InkWell(
                         onTap: () {
+                          var ts_id =
+                              "${transactionlist[index]['date'].toString()} ${transactionlist[index]['time'].toString()}";
                           Navigator.push(
                             context,
                             AddSpendRoute(
-                                builder: (context) => const AddCategory()),
+                                builder: (context) => AddCategory(tsId: ts_id)),
                           );
                         },
                         child: Card(

@@ -1,16 +1,40 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
 import '../classes/color_palette.dart';
-import 'add_spend.dart';
+
+final db = FirebaseFirestore.instance;
+final user = FirebaseAuth.instance.currentUser;
+final uid = user?.uid;
+String? category_of_spend = "-- Select category --";
+String? catAdded = "";
 
 class AddCategory extends StatefulWidget {
-  const AddCategory({super.key});
+  final String tsId;
+  const AddCategory({super.key, required this.tsId});
 
   @override
   State<AddCategory> createState() => _AddCategoryState();
+}
+
+List<String> items = ["-- Select category --"];
+getCategorywiseGoals() async {
+  List temp = [];
+  await db
+      .collection("goals")
+      .doc(uid)
+      .collection("categories")
+      .get()
+      .then((value) => {temp = value.docs});
+  for (var item in temp) {
+    items.add(item.id.toString());
+  }
+  items = items.toSet().toList();
+  return temp;
 }
 
 class _AddCategoryState extends State<AddCategory> {
@@ -51,23 +75,26 @@ class _AddCategoryState extends State<AddCategory> {
                       ),
                       child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: DropdownButton(
-                            value: category_of_spend,
-                            icon: const Icon(Icons.keyboard_arrow_down),
-                            items: items.map((item) {
-                              return DropdownMenuItem(
-                                value: item,
-                                child: Text(item),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                category_of_spend = newValue!;
-                                spendData["spendAount"] = amount;
-                                spendData["category"] = category_of_spend;
-                              });
-                            },
-                          )),
+                          child: FutureBuilder(
+                              future: getCategorywiseGoals(),
+                              builder: (context, snapshot) {
+                                return DropdownButton(
+                                  value: category_of_spend,
+                                  icon: const Icon(Icons.keyboard_arrow_down),
+                                  items: items.map((item) {
+                                    return DropdownMenuItem(
+                                      value: item,
+                                      child: Text(item),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      category_of_spend = newValue;
+                                      catAdded = category_of_spend;
+                                    });
+                                  },
+                                );
+                              })),
                     ),
                     const Divider(
                       color: Colors.white,
@@ -75,13 +102,13 @@ class _AddCategoryState extends State<AddCategory> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        //print(amount);
-                        //print(category_of_spend);
                         db
-                            .collection("users")
-                            .doc(uid)
                             .collection("transactions")
-                            .add(spendData);
+                            .doc(uid)
+                            .collection("details")
+                            .doc(widget.tsId)
+                            .set({"category": catAdded},
+                                SetOptions(merge: true));
                       },
                       child: const Text('Add'),
                     ),

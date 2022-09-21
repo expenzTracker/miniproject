@@ -40,94 +40,94 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     spentData = 0.0;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Dashboard"),
-        backgroundColor: ColorPalette.piggyViolet,
-      ),
-      drawer: const DrawerComponent(),
-      backgroundColor: Colors.black,
-      bottomNavigationBar: const Navbar(),
-      body: Column(
-        children: [
-          FutureBuilder(
-              future: getSpentAmount(),
-              builder: (context, snapshot) {
-                return Column(
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 200,
-                      padding: const EdgeInsets.all(10.0),
-                      child: Card(
-                        color: ColorPalette.piggyGrey,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              textBaseline: TextBaseline.alphabetic,
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              children: [
-                                Text("Rs.${(budget - spentData).toString()}",
-                                    style: const TextStyle(
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold)),
-                                const Text("left",
-                                    style: TextStyle(fontSize: 10))
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              textBaseline: TextBaseline.alphabetic,
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              children: [
-                                Text("Rs.${spentData.toString()}",
-                                    style: const TextStyle(
-                                        fontSize: 23,
-                                        fontWeight: FontWeight.bold)),
-                                const Text("spent",
-                                    style: TextStyle(fontSize: 14))
-                              ],
-                            ),
-                          ],
+        appBar: AppBar(
+          title: const Text("Dashboard"),
+          backgroundColor: ColorPalette.piggyViolet,
+        ),
+        drawer: const DrawerComponent(),
+        backgroundColor: Colors.black,
+        bottomNavigationBar: const Navbar(),
+        body: Column(
+          children: [
+            FutureBuilder(
+                future: getSpentAmount(),
+                builder: (context, snapshot) {
+                  return Column(
+                    children: [
+                      Container(
+                        width: 300,
+                        height: 200,
+                        padding: const EdgeInsets.all(10.0),
+                        child: Card(
+                          color: ColorPalette.piggyGrey,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                textBaseline: TextBaseline.alphabetic,
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
+                                children: [
+                                  Text("Rs.${(budget - spentData).toString()}",
+                                      style: const TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold)),
+                                  const Text("left",
+                                      style: TextStyle(fontSize: 10))
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                textBaseline: TextBaseline.alphabetic,
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
+                                children: [
+                                  Text("Rs.${spentData.toString()}",
+                                      style: const TextStyle(
+                                          fontSize: 23,
+                                          fontWeight: FontWeight.bold)),
+                                  const Text("spent",
+                                      style: TextStyle(fontSize: 14))
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                );
-              }),
-          const Expanded(child: SizedBox(height: 300, child: CategoryWise())),
-          const SizedBox(
-              height: 200, width: 365, child: UncategorizedSpendsBody()),
-          Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  AddSpendRoute(builder: (context) => const AddSpend()),
-                );
-              },
-              child: Hero(
-                tag: _heroAddSpend,
-                child: Material(
-                  color: ColorPalette.piggyPink,
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32)),
-                  child: const Icon(
-                    Icons.add_rounded,
-                    size: 56,
-                  ),
-                ),
-              ),
+                    ],
+                  );
+                }),
+            const CategoryWise(),
+            const Expanded(
+              child: SizedBox(width: 365, child: UncategorizedSpendsBody()),
             ),
-          )
-        ],
-      ),
-    );
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              AddSpendRoute(builder: (context) => const AddSpend()),
+            );
+          },
+          backgroundColor: ColorPalette.piggyPink,
+          // child: Hero(
+          //   tag: _heroAddSpend,
+          //   child: Material(
+          //     color: ColorPalette.piggyPink,
+          //     elevation: 2,
+          //     shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(32)),
+          child: const Icon(
+            Icons.add_rounded,
+            size: 56,
+          ),
+          //   ),
+          // ),
+        ));
   }
 }
 

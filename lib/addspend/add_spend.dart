@@ -9,6 +9,21 @@ final db = FirebaseFirestore.instance;
 final user = FirebaseAuth.instance.currentUser;
 final uid = user?.uid;
 
+Map months = {
+  '1': 'January',
+  '2': 'February',
+  '3': 'March',
+  '4': 'April',
+  '5': 'May',
+  '6': 'June',
+  '7': 'July',
+  '8': 'August',
+  '9': 'September',
+  '10': 'October',
+  '11': 'November',
+  '12': 'December',
+};
+
 String? category_of_spend = "-- Select category --";
 
 List<String> items = ["-- Select category --"];
@@ -16,7 +31,7 @@ List<String> items = ["-- Select category --"];
 var spendData = <String, dynamic>{
   "amount": "0",
   "category": "-- Select category --",
-  "date": DateTime.now().day.toString(),
+  "date": DateTime.now(),
 };
 
 getCategorywiseGoals() async {
@@ -132,7 +147,7 @@ class _AddSpendState extends State<AddSpend> {
                               onChanged: (String? newValue) {
                                 setState(() {
                                   category_of_spend = newValue!;
-                                  spendData["spendAount"] = amount;
+                                  spendData["amount"] = amount;
                                   spendData["category"] = category_of_spend;
                                 });
                               },
@@ -148,6 +163,10 @@ class _AddSpendState extends State<AddSpend> {
                     ElevatedButton(
                       onPressed: () async {
                         String timestamp = DateTime.now().toLocal().toString();
+                        spendData["month"] =
+                            months[DateTime.now().month.toString()];
+                        spendData["date"] = timestamp.split(" ")[0];
+                        spendData["time"] = timestamp.split(" ")[1];
                         db
                             .collection("transactions")
                             .doc(uid)
