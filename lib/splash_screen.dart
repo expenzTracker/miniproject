@@ -49,6 +49,10 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Column(
                     children: const [
                       Image(
+                        image: AssetImage("images/mypiggylogo.png"),
+                        height: 300,
+                      ),
+                      Image(
                         //logo
                         image: AssetImage("images/piggy.png"),
                         height: 50,

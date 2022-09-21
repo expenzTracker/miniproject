@@ -27,7 +27,8 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorPalette.piggyBlack,
       appBar: AppBar(
-          title: const Text('Home'), backgroundColor: ColorPalette.piggyViolet),
+          title: const Text('Home'),
+          backgroundColor: ColorPalette.piggyBlueDark),
       drawer: const DrawerComponent(),
       body: SingleChildScrollView(
         child: Center(

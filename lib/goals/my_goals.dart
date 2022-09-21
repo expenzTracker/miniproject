@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 // import 'add_category_route.dart';
 import '../classes/category.dart';
 import 'newcategory.dart';
-import 'categoryitem.dart';
 import 'categorylist.dart';
 import '../drawer_component.dart';
 
@@ -160,10 +159,13 @@ class _MyGoalsState extends State<MyGoals> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorPalette.piggyBlack,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: const Text('My Goals'),
-          backgroundColor: ColorPalette.piggyViolet,
+          title: const Text(
+            'My Goals',
+            style: TextStyle(color: ColorPalette.piggyPinkDark),
+          ),
+          backgroundColor: Colors.black,
         ),
         drawer: const DrawerComponent(),
         bottomNavigationBar: const Navbar(),
@@ -193,7 +195,7 @@ class _MyGoalsState extends State<MyGoals> {
                             "$budget",
                             style: const TextStyle(
                               fontSize: 60,
-                              color: ColorPalette.piggyPink,
+                              color: ColorPalette.piggyPinkDark,
                               fontWeight: FontWeight.w200,
                             ),
                           ),
@@ -211,14 +213,14 @@ class _MyGoalsState extends State<MyGoals> {
                             borderRadius: BorderRadius.circular(40)),
                         hintText: 'Enter your monthly goals',
                         filled: true,
-                        fillColor: Colors.grey,
+                        fillColor: Colors.white,
                       ),
                     ),
                   ),
                   ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          ColorPalette.piggyGreenDark),
+                      backgroundColor:
+                          MaterialStateProperty.all(ColorPalette.piggyPinkDark),
                     ),
                     onPressed: () {
                       setState(() {});
@@ -237,7 +239,7 @@ class _MyGoalsState extends State<MyGoals> {
                       width: 300,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.grey,
+                        color: Colors.black,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -252,7 +254,8 @@ class _MyGoalsState extends State<MyGoals> {
                                   'Categories',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20),
+                                      fontSize: 20,
+                                      color: ColorPalette.piggyPinkDark),
                                 ),
                               ),
                               CategoryList(
@@ -261,7 +264,13 @@ class _MyGoalsState extends State<MyGoals> {
                                 width: 100,
                                 height: 100,
                                 decoration: const BoxDecoration(
-                                  color: Colors.black,
+                                  gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: [
+                                        ColorPalette.piggyPinkDark,
+                                        Colors.orange
+                                      ]),
                                   shape: BoxShape.circle,
                                 ),
                                 child: TextButton(
@@ -270,7 +279,7 @@ class _MyGoalsState extends State<MyGoals> {
                                   },
                                   child: const Text(
                                     'Add category',
-                                    style: TextStyle(color: Colors.grey),
+                                    style: TextStyle(color: Colors.white),
                                   ),
                                 ),
                               ),

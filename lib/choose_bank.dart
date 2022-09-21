@@ -41,17 +41,24 @@ class _ChooseBankState extends State<ChooseBank> {
     final uid = user?.uid;
     String? data;
     return Scaffold(
-      // bottomNavigationBar: const Navbar(),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Choose Bank'),
-        backgroundColor: ColorPalette.piggyViolet,
+        title: const Text(
+          'Choose Bank',
+          style: TextStyle(color: ColorPalette.piggyPinkDark),
+        ),
+        backgroundColor: Colors.black,
       ),
-      bottomNavigationBar: const Navbar(),
       drawer: const DrawerComponent(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              "Choose your bank",
+              style: TextStyle(color: ColorPalette.piggyBlueDark, fontSize: 23),
+            ),
+            const SizedBox(height: 10),
             DropdownButton(
               value: dropdownvalue,
               icon: const Icon(Icons.keyboard_arrow_down),
