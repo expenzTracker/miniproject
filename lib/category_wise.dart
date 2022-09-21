@@ -86,7 +86,6 @@ class _CategoryWiseState extends State<CategoryWise> {
                 //searching
                 if ((element.data() as Map).containsKey('category') &&
                     (element.data() as Map)['category'] == currentCategory) {
-                  //print("\n***Amount GOAL***\n${element.data() as Map}");
                   currentCategoryExpenditure +=
                       double.parse((element.data() as Map)['amount']);
                 }

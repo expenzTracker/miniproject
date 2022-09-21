@@ -166,6 +166,7 @@ class _MyGoalsState extends State<MyGoals> {
           backgroundColor: ColorPalette.piggyViolet,
         ),
         drawer: const DrawerComponent(),
+        bottomNavigationBar: const Navbar(),
         body: FutureBuilder(
             future: getcats(),
             builder: (context, snapshot) {

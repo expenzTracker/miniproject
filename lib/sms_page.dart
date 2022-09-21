@@ -45,46 +45,61 @@ class MyInboxState extends State {
       '11': 'November',
       '12': 'December',
     };
+    var monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ];
     List allMessages = [];
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Monthly Expenditure"),
-          backgroundColor: ColorPalette.piggyViolet,
-        ),
-        bottomNavigationBar: const Navbar(),
-        drawer: const DrawerComponent(),
-        body: RefreshIndicator(
-          onRefresh: () async {
-            setState(() {
-              fetchSMS(messages, months, allMessages);
-            });
+      appBar: AppBar(
+        title: const Text("Monthly Expenditure"),
+        backgroundColor: ColorPalette.piggyViolet,
+      ),
+      bottomNavigationBar: const Navbar(),
+      drawer: const DrawerComponent(),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          setState(() {
+            fetchSMS(messages, months, allMessages);
+          });
+        },
+        child: FutureBuilder(
+          future: fetchSMS(messages, months, allMessages),
+          builder: (context, snapshot) {
+            // return Text(
+            //   data.toString()
+            // );
+            return ListView.separated(
+              separatorBuilder: (context, index) => const Divider(
+                color: Colors.black,
+              ),
+              itemCount: messages.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListTile(
+                    title: Text(monthNames[index % messages.length]),
+                    subtitle:
+                        Text(messages[index % messages.length].toString()),
+                  ),
+                );
+              },
+            );
           },
-          child: FutureBuilder(
-            future: fetchSMS(messages, months, allMessages),
-            builder: (context, snapshot) {
-              // return Text(
-              //   data.toString()
-              // );
-              return ListView.separated(
-                separatorBuilder: (context, index) => const Divider(
-                  color: Colors.black,
-                ),
-                itemCount: messages.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ListTile(
-                      // title: Text(months[index % months.length]),
-                      subtitle:
-                          Text(messages[index % messages.length].toString()),
-                    ),
-                  );
-                },
-              );
-            },
-          ),
-        ));
+        ),
+      ),
+    );
   }
 
   DocumentSnapshot? tempTrans;

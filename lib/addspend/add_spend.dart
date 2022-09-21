@@ -30,6 +30,7 @@ getCategorywiseGoals() async {
   for (var item in temp) {
     items.add(item.id);
   }
+  items = items.toSet().toList();
   return temp;
 }
 
@@ -146,13 +147,13 @@ class _AddSpendState extends State<AddSpend> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        //print(amount);
-                        //print(category_of_spend);
+                        String timestamp = DateTime.now().toLocal().toString();
                         db
-                            .collection("users")
-                            .doc(uid)
                             .collection("transactions")
-                            .add(spendData);
+                            .doc(uid)
+                            .collection("details")
+                            .doc(timestamp)
+                            .set(spendData);
                       },
                       child: const Text('Add'),
                     ),

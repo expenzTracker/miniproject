@@ -1,7 +1,6 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
             "outputFile": "D:\\projects\\miniproject\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
             "map": [
                 {
@@ -15,13 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\maria\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\values-pt\\values-pt.xml",
-=======
-            "outputFile": "/home/navneeth14/StudioProjects/miniproject/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-pt/values-pt.xml",
-            "map": [
-                {
-                    "source": "/home/navneeth14/.gradle/caches/transforms-3/1377ecc082df76fa18d0a5c00a428a5e/transformed/core-1.6.0/res/values-pt/values-pt.xml",
->>>>>>> 7673bfad3b98daec7ccc9d75a58cc41addbce3b5
+                    "source": "C:\\Users\\maria\\.gradle\\caches\\transforms-3\\2f4b19dfa8b489e3233a5d7fdda270b8\\transformed\\core-1.8.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -36,19 +29,6 @@
                         "endColumns": "100",
                         "endOffsets": "583"
                     }
-<<<<<<< HEAD
-=======
-                },
-                {
-                    "source": "/home/navneeth14/.gradle/caches/transforms-3/33bff2b79f5a68c988cfc0a545303581/transformed/browser-1.4.0/res/values-pt/values-pt.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,170,269,381",
-                        "endColumns": "114,98,111,105",
-                        "endOffsets": "165,264,376,482"
-                    }
->>>>>>> 7673bfad3b98daec7ccc9d75a58cc41addbce3b5
                 }
             ]
         }

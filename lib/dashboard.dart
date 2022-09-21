@@ -32,6 +32,7 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    // fetchSms
     spentData = 0.0;
   }
 
@@ -54,48 +55,46 @@ class _DashboardState extends State<Dashboard> {
                 return Column(
                   children: [
                     Container(
-                        width: 300,
-                        height: 200,
-                        padding: const EdgeInsets.all(10.0),
-                        child: Card(
-                          color: ColorPalette.piggyGrey,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                textBaseline: TextBaseline.alphabetic,
-                                crossAxisAlignment: CrossAxisAlignment.baseline,
-                                children: [
-                                  Text("Rs.${(budget - spentData).toString()}",
-                                      style: const TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold)),
-                                  const Text("left",
-                                      style: TextStyle(fontSize: 10))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                textBaseline: TextBaseline.alphabetic,
-                                crossAxisAlignment: CrossAxisAlignment.baseline,
-                                children: [
-                                  Text("Rs.${spentData.toString()}",
-                                      style: const TextStyle(
-                                          fontSize: 23,
-                                          fontWeight: FontWeight.bold)),
-                                  const Text("spent",
-                                      style: TextStyle(fontSize: 14))
-                                ],
-                              ),
-                            ],
-                          ),
-                        )),
-                    // CategoryWise(),
+                      width: 300,
+                      height: 200,
+                      padding: const EdgeInsets.all(10.0),
+                      child: Card(
+                        color: ColorPalette.piggyGrey,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              textBaseline: TextBaseline.alphabetic,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              children: [
+                                Text("Rs.${(budget - spentData).toString()}",
+                                    style: const TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold)),
+                                const Text("left",
+                                    style: TextStyle(fontSize: 10))
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              textBaseline: TextBaseline.alphabetic,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              children: [
+                                Text("Rs.${spentData.toString()}",
+                                    style: const TextStyle(
+                                        fontSize: 23,
+                                        fontWeight: FontWeight.bold)),
+                                const Text("spent",
+                                    style: TextStyle(fontSize: 14))
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 );
               }),
@@ -149,7 +148,7 @@ getSpentAmount() async {
       .collection("transactions")
       .doc(uid)
       .collection('details')
-      .where("month", isEqualTo: 'July')
+      .where("month", isEqualTo: 'September')
       .get()
       .then(
     (QuerySnapshot doc) {

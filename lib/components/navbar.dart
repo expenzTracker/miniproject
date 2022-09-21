@@ -3,6 +3,7 @@ import 'package:first_app/dashboard.dart';
 import 'package:first_app/goals/my_goals.dart';
 import 'package:first_app/loc_page.dart';
 import 'package:first_app/show_sms.dart';
+import 'package:first_app/sms_page.dart';
 import 'package:flutter/material.dart';
 
 int _selectedIndex = 0;
@@ -16,7 +17,7 @@ class Navbar extends StatefulWidget {
 class _NavbarState extends State<Navbar> {
   static const List<Widget> _widgetOptions = <Widget>[
     Dashboard(),
-    ShowInbox(),
+    MyInbox(),
     LocationRoute(),
     MyGoals()
   ];
