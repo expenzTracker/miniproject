@@ -133,20 +133,37 @@ class _DashboardState extends State<Dashboard> {
             //   child: SizedBox(
             //       height: 400, width: 365, child: UncategorizedSpendsBody()),
             // ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const UncategorizedSpends()),
-                  );
-                },
-                child: Row(
-                  children: const [
-                    Text("View Uncategorized Expenditures"),
-                    Icon(Icons.arrow_right_rounded),
-                  ],
-                ))
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 13),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorPalette.piggyCream,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const UncategorizedSpends()),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          "View Uncategorized Expenditures",
+                          style: TextStyle(color: Colors.black87, fontSize: 17),
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_right_rounded,
+                        color: Colors.black87,
+                        size: 34,
+                      ),
+                    ],
+                  )),
+            )
           ],
         ),
         floatingActionButton: FloatingActionButton(

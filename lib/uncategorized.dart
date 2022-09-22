@@ -4,6 +4,7 @@ import 'package:first_app/addspend/add_category.dart';
 import 'package:flutter/material.dart';
 import 'addspend/add_spend_route.dart';
 import 'classes/color_palette.dart';
+import 'components/navbar.dart';
 import 'dashboard.dart';
 import 'drawer_component.dart';
 
@@ -70,24 +71,40 @@ class _UncategorizedSpendsBodyState extends State<UncategorizedSpendsBody> {
                           );
                         },
                         child: Card(
-                            child: ListTile(
-                          title: Text(
-                              transactionlist[index]['amount'].toString(),
-                              style: const TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold)),
-                          subtitle: Row(
-                            children: [
-                              Text(
-                                transactionlist[index]['time']
-                                    .toString()
-                                    .split('.')[0],
+                            color: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: const BorderSide(
+                                color: Colors.orange,
                               ),
-                              const SizedBox(width: 10),
-                              Text(transactionlist[index]['date'].toString()),
-                            ],
-                          ),
-                          trailing: const Icon(Icons.turned_in_not),
-                        )),
+                            ),
+                            child: ListTile(
+                              title: Text(
+                                  transactionlist[index]['amount'].toString(),
+                                  style: const TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              subtitle: Row(
+                                children: [
+                                  Text(
+                                    transactionlist[index]['time']
+                                        .toString()
+                                        .split('.')[0],
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    transactionlist[index]['date'].toString(),
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                              trailing: const Icon(
+                                Icons.turned_in_not,
+                                color: Colors.white,
+                              ),
+                            )),
                       );
                     },
                   );
@@ -105,12 +122,16 @@ class _UncategorizedSpendsState extends State<UncategorizedSpends> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.piggyBlack,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Uncategorized Spends',
-            style: TextStyle(color: ColorPalette.piggyBlack)),
+        title: const Text(
+          "Uncategorized",
+          style: TextStyle(color: ColorPalette.piggyPinkDark),
+        ),
+        backgroundColor: Colors.black,
       ),
       drawer: const DrawerComponent(),
+      bottomNavigationBar: const Navbar(),
       body: const UncategorizedSpendsBody(),
     );
   }
