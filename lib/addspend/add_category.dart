@@ -48,7 +48,7 @@ class _AddCategoryState extends State<AddCategory> {
         child: Hero(
           tag: "Add Category",
           child: Material(
-            color: ColorPalette.piggyViolet,
+            color: Colors.black,
             elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
@@ -64,7 +64,9 @@ class _AddCategoryState extends State<AddCategory> {
                       child: Text(
                         'New spend',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
                       ),
                     ),
                     Container(
@@ -101,6 +103,8 @@ class _AddCategoryState extends State<AddCategory> {
                       thickness: 0.2,
                     ),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: ColorPalette.piggyPinkDark),
                       onPressed: () async {
                         db
                             .collection("transactions")

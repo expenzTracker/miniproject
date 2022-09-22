@@ -84,7 +84,7 @@ class _AddSpendState extends State<AddSpend> {
         child: Hero(
           tag: _heroAddSpend,
           child: Material(
-            color: ColorPalette.piggyViolet,
+            color: Colors.black,
             elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
@@ -100,7 +100,9 @@ class _AddSpendState extends State<AddSpend> {
                       child: Text(
                         'New spend',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
                       ),
                     ),
                     Container(
@@ -161,6 +163,8 @@ class _AddSpendState extends State<AddSpend> {
                       thickness: 0.2,
                     ),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: ColorPalette.piggyPinkDark),
                       onPressed: () async {
                         String timestamp = DateTime.now().toLocal().toString();
                         spendData["month"] =

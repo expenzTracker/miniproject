@@ -8,7 +8,7 @@ import 'dashboard.dart';
 import 'drawer_component.dart';
 
 final db = FirebaseFirestore.instance;
-final transactionlist = [];
+List transactionlist = [];
 final user = FirebaseAuth.instance.currentUser;
 final uid = user?.uid;
 
@@ -30,6 +30,7 @@ getSpentDetails() async {
               })
             }
         });
+    transactionlist = transactionlist.toSet().toList();
   },
       // )+=(double.parse((value.data() as Map)['amount']))
       onError: (e) => print("Error getting document: $e"));

@@ -120,11 +120,33 @@ class _DashboardState extends State<Dashboard> {
                     ],
                   );
                 }),
-            const Expanded(
-              child: SizedBox(
-                  height: 400, width: 365, child: UncategorizedSpendsBody()),
+            const Padding(
+              padding: EdgeInsets.all(18.0),
+              child: Text("Category-wise Expenditure",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w100,
+                      color: Colors.white)),
             ),
             const CategoryWise(),
+            // const Expanded(
+            //   child: SizedBox(
+            //       height: 400, width: 365, child: UncategorizedSpendsBody()),
+            // ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UncategorizedSpends()),
+                  );
+                },
+                child: Row(
+                  children: const [
+                    Text("View Uncategorized Expenditures"),
+                    Icon(Icons.arrow_right_rounded),
+                  ],
+                ))
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -144,7 +166,7 @@ class _DashboardState extends State<Dashboard> {
           //         borderRadius: BorderRadius.circular(32)),
           child: const Icon(
             Icons.add_rounded,
-            size: 56,
+            size: 45,
           ),
           //   ),
           // ),

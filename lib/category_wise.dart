@@ -91,17 +91,29 @@ class _CategoryWiseState extends State<CategoryWise> {
                 }
               }
 
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(27, 8, 27, 8),
+              return Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    side: const BorderSide(
+                      color: ColorPalette.piggyPinkDark, //<-- SEE HERE
+                    ),
+                  ),
+                  color: Colors.black,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 23),
                     child: ListTile(
                       leading: Text(
-                          (categorywiseGoals[index].data() as Map)["name"]
-                              .toString()
-                              .toUpperCase()),
+                        (categorywiseGoals[index].data() as Map)["name"]
+                            .toString()
+                            .toUpperCase(),
+                        style: const TextStyle(color: Colors.white),
+                      ),
                       title: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Row(
                             textBaseline: TextBaseline.alphabetic,
@@ -110,11 +122,15 @@ class _CategoryWiseState extends State<CategoryWise> {
                               Text(
                                 "Rs.${(currentCategoryGoal - currentCategoryExpenditure).toString()}",
                                 style: const TextStyle(
-                                    fontSize: 23, fontWeight: FontWeight.bold),
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
                               const Text(
                                 "  left",
-                                style: TextStyle(fontSize: 14),
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.white),
                               ),
                             ],
                           ),
@@ -124,11 +140,13 @@ class _CategoryWiseState extends State<CategoryWise> {
                             children: [
                               Text(
                                 "Rs.${currentCategoryExpenditure.toString()}",
-                                style: const TextStyle(fontSize: 17),
+                                style: const TextStyle(
+                                    fontSize: 17, color: Colors.white),
                               ),
                               const Text(
                                 "  spent",
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(
+                                    fontSize: 10, color: Colors.white),
                               ),
                             ],
                           ),
